@@ -1,0 +1,728 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>MCP: Questions/Réponses en 20 minutes</title>
+
+    <meta name="description" content="Présentation MCP de 20 minutes répondant aux questions les plus fréquentes">
+    <meta name="author" content="Olivier Wulveryck">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/octo.css" id="theme">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css">
+    
+    <!-- Ajout de Mermaid.js -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.8.0/dist/mermaid.min.js"></script>
+    <script>
+      mermaid.initialize({
+        startOnLoad: false,
+        securityLevel: 'loose',
+        theme: 'default',
+        flowchart: {
+          htmlLabels: true,
+          curve: 'linear'
+        },
+        sequence: {
+          mirrorActors: false
+        }
+      });
+    </script>
+
+    <style>
+    :root {
+    --r-main-font-size: 28px;
+    }
+
+    .reveal .slides {
+    font-size: var(--r-main-font-size);
+    }
+    
+    .mermaid {
+      margin: 0 auto;
+      text-align: center;
+    }
+  .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px 0;
+  }
+  .flex-item {
+     flex-basis: calc(50% - 7.5px);
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 10px;
+    box-sizing: border-box;
+  }
+  .flex-item h3 {
+    margin-top: 0;
+  }
+  .flex-item ul, .flex-item p {
+    font-size: 0.9em;
+  }
+  .flex-item.conseil {
+      background: #00AEC7;
+      color: white;
+  }
+   .flex-item.conseil p {
+      margin-bottom: 5px;
+  }
+  .qa-box {
+    background: #e8f4f8;
+    border-left: 5px solid #00AEC7;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+  }
+  .qa-box h4 {
+    color: #00AEC7;
+    margin-top: 0;
+  }
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.8em;
+  }
+  .comparison-table th, .comparison-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+  }
+  .comparison-table th {
+    background-color: #00AEC7;
+    color: white;
+  }
+  .highlight-mcp {
+    background-color: #e8f4f8;
+    font-weight: bold;
+  }
+    </style>
+  </head>
+
+  <body>
+    <img class="header-tete" src="coorp/images/tete.png"/>
+    <div class="footer-text">OCTO Part of Accenture © 2025 - All rights reserved</div>
+    <div class="better-way">There is a better way</div>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <!-- Title Slide -->
+        <section>
+          <h2>MCP: Vos questions, nos réponses</h2>
+          <p><em>20 minutes pour tout comprendre sur le Model Context Protocol</em></p>
+          <p class="fragment">Basé sur vos <strong>vraies questions</strong> : 580+ questions analysées!</p>
+          <aside class="notes">
+            <h3>Introduction directe</h3>
+            <ul>
+              <li>Format différent: nous partons de VOS questions concrètes</li>
+              <li>580+ questions réelles analysées pour cette présentation</li>
+              <li>Focus sur les préoccupations pratiques</li>
+              <li>20 minutes chrono pour aller à l'essentiel</li>
+            </ul>
+            <p>Timing: 1 minute</p>
+          </aside>
+        </section>
+
+        <!-- Question 1: Qu'est-ce que le MCP -->
+        <section>
+          <h2>Question #1: "C'est quoi exactement le MCP ?"</h2>
+          
+          <div class="qa-box">
+            <h4>🤖 Réponse simple</h4>
+            <p>Le <strong>Model Context Protocol (MCP)</strong> est un standard qui permet aux IA de découvrir et d'utiliser des outils externes automatiquement</p>
+          </div>
+
+          <div class="split-layout">
+            <div class="split-left">
+              <h3>Analogie pratique:</h3>
+              <ul>
+                <li>HTTP = standard pour les humains et le web</li>
+                <li><strong>MCP = standard pour les IA et les outils</strong></li>
+                <li>Créé par Anthropic fin 2024</li>
+                <li>Adopté par OpenAI, Google, Microsoft</li>
+              </ul>
+            </div>
+            <div class="split-right">
+              <h3>Ce que ça change:</h3>
+              <ul>
+                <li>❌ Avant: IA limitée à la conversation</li>
+                <li>✅ Après: IA capable d'agir concrètement</li>
+                <li>🔧 Interface standardisée</li>
+                <li>🚀 Écosystème d'outils</li>
+              </ul>
+            </div>
+          </div>
+          
+          <aside class="notes">
+            <h3>Réponse à la question la plus fréquente</h3>
+            <p>Cette question revient dans 50+ variations. Points clés:</p>
+            <ul>
+              <li>Définition simple et concrète</li>
+              <li>Analogie avec HTTP pour ancrer conceptuellement</li>
+              <li>Crédibilité: adoption par tous les grands acteurs</li>
+              <li>Impact tangible: passage de "conversationnel" à "actionnable"</li>
+            </ul>
+            <p>Timing: 2 minutes</p>
+          </aside>
+        </section>
+
+        <!-- Question 2: Différences avec REST/GraphQL -->
+        <section>
+          <h2>Question #2: "Comment ça se différencie de REST/GraphQL/gRPC ?"</h2>
+          
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Aspect</th>
+                <th>REST</th>
+                <th>GraphQL</th>
+                <th>gRPC</th>
+                <th class="highlight-mcp">MCP</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Utilisateur cible</strong></td>
+                <td>Développeurs</td>
+                <td>Développeurs</td>
+                <td>Développeurs</td>
+                <td class="highlight-mcp">IA/Agents</td>
+              </tr>
+              <tr>
+                <td><strong>Interface</strong></td>
+                <td>HTTP/JSON</td>
+                <td>HTTP/JSON</td>
+                <td>HTTP/2 + Protobuf</td>
+                <td class="highlight-mcp">JSON-RPC</td>
+              </tr>
+              <tr>
+                <td><strong>Auto-description</strong></td>
+                <td>OpenAPI (optionnel)</td>
+                <td>Schema intégré</td>
+                <td>Protobuf</td>
+                <td class="highlight-mcp">Intégré natif</td>
+              </tr>
+              <tr>
+                <td><strong>Guidage d'usage</strong></td>
+                <td>Documentation externe</td>
+                <td>Documentation externe</td>
+                <td>Documentation externe</td>
+                <td class="highlight-mcp">Prompts intégrés</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="qa-box">
+            <h4>💡 La différence clé</h4>
+            <p>MCP est conçu pour que l'<strong>IA comprenne</strong> comment utiliser l'outil, pas juste comment y accéder</p>
+          </div>
+          
+          <aside class="notes">
+            <h3>Comparaison demandée dans 40+ questions</h3>
+            <p>Clarifier les différences:</p>
+            <ul>
+              <li>MCP n'est pas un concurrent de REST/GraphQL</li>
+              <li>C'est une couche d'adaptation pour les IA</li>
+              <li>Différence fondamentale: auto-description ET guidage d'usage</li>
+              <li>Les prompts MCP sont uniques - pas d'équivalent dans les autres protocoles</li>
+            </ul>
+            <p>Timing: 2 minutes</p>
+          </aside>
+        </section>
+
+        <!-- Question 3: Sécurité -->
+        <section>
+          <h2>Question #3: "Comment le MCP gère-t-il la sécurité ?"</h2>
+          
+          <div class="split-layout">
+            <div class="split-left">
+              <h3>🔒 Sécurité du protocole:</h3>
+              <ul>
+                <li>MCP ≠ Mécanisme d'authentification</li>
+                <li>Compatible avec <strong>OAuth2, JWT, API Keys</strong></li>
+                <li>Transport sécurisé via <strong>TLS/HTTPS</strong></li>
+                <li>Validation des inputs <strong>côté serveur</strong></li>
+              </ul>
+            </div>
+            <div class="split-right">
+              <h3>⚠️ Gouvernance nécessaire:</h3>
+              <ul>
+                <li><strong>Permissions granulaires</strong> par outil</li>
+                <li>Politique d'accès par <strong>contexte</strong></li>
+                <li>Audit des actions <strong>des agents</strong></li>
+                <li>Isolation des <strong>environnements</strong></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="qa-box">
+            <h4>🛡️ Bonne pratique</h4>
+            <p>Commencez avec des outils <strong>en lecture seule</strong> puis étendez progressivement les permissions</p>
+          </div>
+          
+          <aside class="notes">
+            <h3>Question sécurité récurrente (30+ variations)</h3>
+            <p>Points importants à clarifier:</p>
+            <ul>
+              <li>MCP lui-même n'est pas un protocole de sécurité</li>
+              <li>Il s'appuie sur les standards existants</li>
+              <li>La gouvernance est cruciale - nouveau défi</li>
+              <li>Approche progressive recommandée</li>
+            </ul>
+            <p>Timing: 2 minutes</p>
+          </aside>
+        </section>
+
+        <!-- Question 4: Facilité d'implémentation -->
+        <section>
+          <h2>Question #4: "Est-ce facile à implémenter ?"</h2>
+          
+          <div class="flex-container">
+            <div class="flex-item">
+              <h3>✅ Oui, car:</h3>
+              <ul>
+                <li><strong>JSON-RPC</strong> simple</li>
+                <li>SDKs disponibles (Python, JS, Go)</li>
+                <li>Documentation claire</li>
+                <li>Exemples nombreux</li>
+              </ul>
+            </div>
+            <div class="flex-item">
+              <h3>⚡ Démarrage rapide:</h3>
+              <ul>
+                <li><strong>30 min</strong>: Premier serveur MCP</li>
+                <li><strong>2h</strong>: Outil complet fonctionnel</li>
+                <li><strong>1 jour</strong>: Intégration production</li>
+                <li><strong>1 semaine</strong>: Prompts optimisés</li>
+              </ul>
+            </div>
+          </div>
+
+          <pre><code class="python" data-trim>
+# Serveur MCP minimal en Python
+from mcp import MCPServer
+
+server = MCPServer("mon-outil")
+
+@server.resource("get_user")
+def get_user(user_id: str):
+    return {"id": user_id, "name": "John Doe"}
+
+if __name__ == "__main__":
+    server.run()
+          </code></pre>
+
+          <div class="qa-box">
+            <h4>🎯 Conseil pratique</h4>
+            <p>Commencez par <strong>adapter une API existante</strong> plutôt que de créer de zéro</p>
+          </div>
+          
+          <aside class="notes">
+            <h3>Questions d'implémentation (25+ occurrences)</h3>
+            <p>Rassurer sur la simplicité:</p>
+            <ul>
+              <li>Courbe d'apprentissage douce</li>
+              <li>Outillage mature disponible</li>
+              <li>Exemples concrets avec timings réalistes</li>
+              <li>Approche progressive recommandée</li>
+            </ul>
+            <p>Timing: 2 minutes</p>
+          </aside>
+        </section>
+
+        <!-- Question 5: Open source et outils -->
+        <section>
+          <h2>Question #5: "Le MCP est-il open source ? Quels outils ?"</h2>
+          
+          <div class="split-layout">
+            <div class="split-left">
+              <h3>📖 Open Source complet:</h3>
+              <ul>
+                <li><strong>Spécification</strong>: MIT License</li>
+                <li><strong>SDKs officiels</strong>: Python, TypeScript</li>
+                <li><strong>Exemples</strong>: GitHub public</li>
+                <li><strong>Communauté active</strong></li>
+              </ul>
+            </div>
+            <div class="split-right">
+              <h3>🛠️ Écosystème d'outils:</h3>
+              <ul>
+                <li><strong>Claude Desktop</strong>: Support natif</li>
+                <li><strong>Outils de dev</strong>: Debugger, Inspector</li>
+                <li><strong>Templates</strong>: Serveurs préconfigurés</li>
+                <li><strong>Marketplace</strong>: En développement</li>
+              </ul>
+            </div>
+          </div>
+
+          <div style="text-align: center; margin: 20px 0;">
+            <h3>🔗 Ressources essentielles:</h3>
+            <p><code>github.com/modelcontextprotocol</code></p>
+            <p><code>modelcontextprotocol.io</code></p>
+          </div>
+          
+          <aside class="notes">
+            <h3>Questions sur l'écosystème (20+ fois)</h3>
+            <p>Rassurer sur la maturité:</p>
+            <ul>
+              <li>Standard ouvert, pas propriétaire</li>
+              <li>Écosystème en croissance rapide</li>
+              <li>Support des grands acteurs tech</li>
+              <li>Ressources facilement accessibles</li>
+            </ul>
+            <p>Timing: 2 minutes</p>
+          </aside>
+        </section>
+
+        <!-- Question 6: Cas d'usage pratiques -->
+        <section>
+          <h2>Question #6: "Quels sont les cas d'usage concrets ?"</h2>
+          
+          <div class="flex-container">
+            <div class="flex-item">
+              <h3>🏢 Entreprise:</h3>
+              <ul>
+                <li>Base de connaissances intelligente</li>
+                <li>Automatisation des tickets</li>
+                <li>Requêtes SQL en langage naturel</li>
+                <li>Intégration CRM/ERP</li>
+              </ul>
+            </div>
+            <div class="flex-item">
+              <h3>⚙️ Développement:</h3>
+              <ul>
+                <li>Interface Git/GitHub</li>
+                <li>CI/CD interactif</li>
+                <li>Debug assisté par IA</li>
+                <li>Documentation auto-générée</li>
+              </ul>
+            </div>
+            <div class="flex-item">
+              <h3>🔬 Spécialisé:</h3>
+              <ul>
+                <li>Analyse de données</li>
+                <li>Contrôle IoT</li>
+                <li>Trading automatisé</li>
+                <li>Recherche scientifique</li>
+              </ul>
+            </div>
+            <div class="flex-item conseil">
+              <h3>💡 Sweet spot</h3>
+              <p>Tâches <strong>répétitives</strong> nécessitant un <strong>accès à des données</strong> externes</p>
+            </div>
+          </div>
+          
+          <aside class="notes">
+            <h3>Questions cas d'usage (35+ variations)</h3>
+            <p>Couvrir les domaines principaux:</p>
+            <ul>
+              <li>Cas d'usage business concrets</li>
+              <li>Applications techniques</li>
+              <li>Niches spécialisées</li>
+              <li>Pattern commun: répétitif + données externes</li>
+            </ul>
+            <p>Timing: 2 minutes</p>
+          </aside>
+        </section>
+
+        <!-- Les 3U: règle fondamentale -->
+        <section>
+          <h2>La règle des 3U: pourquoi certains outils échouent</h2>
+
+          <div style="display: flex; justify-content: space-between; margin: 20px 0;">
+            <div style="width: 30%; text-align: center;">
+              <div style="background: #00AEC7; color: white; padding: 15px; border-radius: 10px; height: 300px;">
+                <div style="font-size: 2em; margin: 10px 0;">🎯</div>
+                <h3>Useful</h3>
+                <hr style="width: 50%; margin: 10px auto; border-color: white;">
+                <p>Résout un <strong>vrai problème</strong></p>
+                <p style="font-size: 0.8em; margin-top: 15px;">Question: "Quelle valeur unique apporte mon outil?"</p>
+              </div>
+            </div>
+            <div style="width: 30%; text-align: center;">
+              <div style="background: #00AEC7; color: white; padding: 15px; border-radius: 10px; height: 300px;">
+                <div style="font-size: 2em; margin: 10px 0;">🔌</div>
+                <h3>Usable</h3>
+                <hr style="width: 50%; margin: 10px auto; border-color: white;">
+                <p>Techniquement <strong>accessible</strong></p>
+                <p style="font-size: 0.8em; margin-top: 15px;">Respecte le standard MCP correctement</p>
+              </div>
+            </div>
+            <div style="width: 30%; text-align: center;">
+              <div style="background: #ff6b35; color: white; padding: 15px; border-radius: 10px; height: 300px;">
+                <div style="font-size: 2em; margin: 10px 0;">👆</div>
+                <h3>Used</h3>
+                <hr style="width: 50%; margin: 10px auto; border-color: white;">
+                <p>L'IA <strong>choisit</strong> votre outil</p>
+                <p style="font-size: 0.8em; margin-top: 15px;"><strong>Le plus négligé!</strong> Les prompts sont cruciaux</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="qa-box">
+            <h4>⚠️ Erreur commune</h4>
+            <p>95% des outils MCP échouent sur le "Used" - ils sont bons mais <strong>invisibles pour l'IA</strong></p>
+          </div>
+          
+          <aside class="notes">
+            <h3>Concept clé pour le succès</h3>
+            <p>Le framework des 3U est essentiel:</p>
+            <ul>
+              <li>Beaucoup d'outils techniques mais peu adoptés</li>
+              <li>Le "Used" est systématiquement sous-estimé</li>
+              <li>Les prompts font la différence</li>
+              <li>Statistique réelle observée dans l'écosystème</li>
+            </ul>
+            <p>Timing: 2 minutes</p>
+          </aside>
+        </section>
+
+        <!-- Exemple concret -->
+        <section>
+          <h2>Exemple concret: Mémoire collective pour équipes</h2>
+          
+          <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+            <div style="width: 48%; text-align: center;">
+              <h3>🧠 Aujourd'hui</h3>
+              <div style="height: 200px; background: #f5f5f5; padding: 10px; border-radius: 5px; display: flex; flex-direction: column; justify-content: center;">
+                <p style="margin: 0; font-weight: bold;">Silos d'information</p>
+                <p style="font-size: 0.8em; margin-top: 10px;">Chaque IA "oublie" entre les sessions</p>
+                <p style="font-size: 0.8em;">Pas de capitalisation d'équipe</p>
+              </div>
+            </div>
+            <div style="width: 48%; text-align: center;">
+              <h3>🚀 Avec MCP</h3>
+              <div style="height: 200px; background: #00AEC7; color: white; padding: 10px; border-radius: 5px; display: flex; flex-direction: column; justify-content: center;">
+                <p style="margin: 0; font-weight: bold;">Graphe de connaissances partagé</p>
+                <p style="font-size: 0.8em; margin-top: 10px;">Décisions d'architecture persistantes</p>
+                <p style="font-size: 0.8em;">Bonnes pratiques automatiquement partagées</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="qa-box">
+            <h4>💡 Impact concret</h4>
+            <p>L'IA sait que "on utilise PostgreSQL" et "on évite MongoDB pour les données transactionnelles" sans qu'on le répète à chaque session</p>
+          </div>
+          
+          <aside class="notes">
+            <h3>Cas d'usage tangible</h3>
+            <p>Exemple parlant pour les développeurs:</p>
+            <ul>
+              <li>Problème réel: perte de contexte entre sessions</li>
+              <li>Solution MCP: serveur exposant un graphe de connaissances</li>
+              <li>Bénéfice immédiat et mesurable</li>
+              <li>Applicable à toute équipe</li>
+            </ul>
+            <p>Timing: 2 minutes</p>
+          </aside>
+        </section>
+
+        <!-- Roadmap et défis -->
+        <section>
+          <h2>Ce qui arrive: roadmap et défis</h2>
+          
+          <div class="split-layout">
+            <div class="split-left">
+              <h3>🔮 Prochaines évolutions:</h3>
+              <ul>
+                <li><strong>Notifications asynchrones</strong> (Q2 2025)</li>
+                <li><strong>Communication inter-agents</strong></li>
+                <li><strong>Marketplace centralisée</strong></li>
+                <li><strong>Standards d'interface</strong> évolués</li>
+              </ul>
+            </div>
+            <div class="split-right">
+              <h3>⚠️ Défis à résoudre:</h3>
+              <ul>
+                <li><strong>Gouvernance</strong>: qui peut créer quels outils?</li>
+                <li><strong>Découvrabilité</strong>: comment trouver les bons outils?</li>
+                <li><strong>Performance</strong>: optimisation des appels</li>
+                <li><strong>Standardisation</strong>: éviter la fragmentation</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="qa-box">
+            <h4>⏰ Le moment critique</h4>
+            <p>Nous sommes dans la <strong>phase de construction</strong> - c'est maintenant qu'il faut se positionner</p>
+          </div>
+          
+          <aside class="notes">
+            <h3>Vision prospective basée sur questions</h3>
+            <p>Répondre aux inquiétudes sur l'avenir:</p>
+            <ul>
+              <li>Roadmap publique et concrète</li>
+              <li>Défis réels mais adressables</li>
+              <li>Opportunité actuelle</li>
+              <li>Parallèle avec l'adoption des API REST</li>
+            </ul>
+            <p>Timing: 2 minutes</p>
+          </aside>
+        </section>
+
+        <!-- Plan d'action -->
+        <section>
+          <h2>Votre plan d'action en 3 étapes</h2>
+
+          <div style="display: flex; justify-content: space-between; margin: 30px 0;">
+            <div style="width: 30%; text-align: center;">
+              <div style="background: #00AEC7; color: white; padding: 15px; border-radius: 10px; height: 350px;">
+                <div style="font-size: 1.8em; margin: 10px 0;">1️⃣</div>
+                <h3>Expérimentez</h3>
+                <hr style="width: 50%; margin: 10px auto; border-color: white;">
+                <ul style="text-align: left; font-size: 0.8em;">
+                  <li>Choisissez 1 cas d'usage simple</li>
+                  <li>Créez un prototype en 2h</li>
+                  <li>Testez avec Claude Desktop</li>
+                  <li>Mesurez l'usage réel</li>
+                </ul>
+              </div>
+            </div>
+            <div style="width: 30%; text-align: center;">
+              <div style="background: #00AEC7; color: white; padding: 15px; border-radius: 10px; height: 350px;">
+                <div style="font-size: 1.8em; margin: 10px 0;">2️⃣</div>
+                <h3>Optimisez</h3>
+                <hr style="width: 50%; margin: 10px auto; border-color: white;">
+                <ul style="text-align: left; font-size: 0.8em;">
+                  <li>Affinez les prompts MCP</li>
+                  <li>Ajoutez sécurité/authentification</li>
+                  <li>Déployez en production</li>
+                  <li>Formez votre équipe</li>
+                </ul>
+              </div>
+            </div>
+            <div style="width: 30%; text-align: center;">
+              <div style="background: #00AEC7; color: white; padding: 15px; border-radius: 10px; height: 350px;">
+                <div style="font-size: 1.8em; margin: 10px 0;">3️⃣</div>
+                <h3>Étendez</h3>
+                <hr style="width: 50%; margin: 10px auto; border-color: white;">
+                <ul style="text-align: left; font-size: 0.8em;">
+                  <li>Créez un écosystème d'outils</li>
+                  <li>Établissez une gouvernance</li>
+                  <li>Anticipez les évolutions</li>
+                  <li>Partagez avec la communauté</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <p style="text-align: center; font-size: 1.2em; margin-top: 20px;"><strong>Commencez cette semaine!</strong></p>
+          
+          <aside class="notes">
+            <h3>Actions concrètes et timing</h3>
+            <p>Plan pragmatique et réalisable:</p>
+            <ul>
+              <li>Étapes progressives et mesurables</li>
+              <li>Démarrage rapide possible</li>
+              <li>Évolution vers la maturité</li>
+              <li>Appel à l'action immédiate</li>
+            </ul>
+            <p>Timing: 2 minutes</p>
+          </aside>
+        </section>
+
+        <!-- Conclusion -->
+        <section>
+          <h2>Points clés à retenir</h2>
+
+          <div style="display: flex; justify-content: space-between; margin: 20px 0;">
+            <div style="width: 45%;">
+              <h3>✅ Ce que vous savez maintenant:</h3>
+              <ul style="font-size: 0.9em;">
+                <li>MCP = standard pour que l'IA utilise des outils</li>
+                <li>Différent de REST/GraphQL (conçu pour l'IA)</li>
+                <li>Sécurisé avec bonnes pratiques</li>
+                <li>Implémentation simple et rapide</li>
+                <li>Écosystème open source mature</li>
+              </ul>
+            </div>
+            <div style="width: 45%;">
+              <h3>🎯 Votre prochain pas:</h3>
+              <ul style="font-size: 0.9em;">
+                <li><strong>Cette semaine</strong>: Identifiez un cas d'usage</li>
+                <li><strong>Ce mois</strong>: Prototype fonctionnel</li>
+                <li><strong>Prochains mois</strong>: Production + équipe</li>
+              </ul>
+              <div style="background: #00AEC7; color: white; padding: 10px; border-radius: 5px; margin-top: 15px;">
+                <p style="margin: 0; font-weight: bold;">La révolution des agents IA commence maintenant</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="text-align: center; margin-top: 30px;">
+            <h3>Questions? Discussion!</h3>
+            <p>Merci pour votre attention 🚀</p>
+          </div>
+          
+          <aside class="notes">
+            <h3>Synthèse et appel à l'action</h3>
+            <p>Récapitulatif structuré:</p>
+            <ul>
+              <li>Validation des apprentissages</li>
+              <li>Plan d'action immédiat</li>
+              <li>Vision à long terme</li>
+              <li>Ouverture sur les questions</li>
+            </ul>
+            <p>Timing: 1 minute</p>
+          </aside>
+        </section>
+
+      </div>
+
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/search/search.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      center: true,
+      hash: true,
+
+      plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+    });
+
+    function initMermaid() {
+      try {
+        mermaid.run({
+          querySelector: '.mermaid'
+        });
+      } catch (error) {
+        console.error('Erreur lors de l\'initialisation de Mermaid:', error);
+      }
+    }
+    
+    Reveal.addEventListener('ready', function() {
+      setTimeout(initMermaid, 500);
+    });
+    
+    Reveal.addEventListener('slidechanged', function(event) {
+      if (event.currentSlide.querySelector('.mermaid')) {
+        setTimeout(initMermaid, 200);
+      }
+    });
+
+    </script>
+
+  </body>
+</html>
