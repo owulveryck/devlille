@@ -1,0 +1,46 @@
+<section>
+  <h2>Caractéristique fondamentale: LLMs sont Stateless</h2>
+  <div class="split-layout">
+    <div class="split-left">
+      <h3>Qu'est-ce que "stateless"?</h3>
+      <ul>
+        <li>Pas de <strong>mémoire persistante</strong> entre les appels</li>
+        <li>Tout contexte doit être <strong>explicitement fourni</strong></li>
+        <li>Comme une personne avec <strong>amnésie</strong> à court terme</li>
+        <li class="fragment">Grande limitation pour les <strong>agents autonomes</strong></li>
+      </ul>
+    </div>
+    <div class="split-right">
+      <pre><code class="text" data-trim>
+Appel 1:
+Utilisateur: "Mon nom est Olivier"
+LLM: "Bonjour Olivier!"
+
+Appel 2 (nouveau contexte):
+Utilisateur: "Quel est mon nom?"
+LLM: "Je ne connais pas votre nom,
+      vous ne me l'avez pas dit."
+      </code></pre>
+    </div>
+  </div>
+  <aside class="notes">
+    <h3>L'absence d'état expliquée simplement</h3>
+    <p>Utiliser cette analogie parlante:</p>
+    <ul>
+      <li>Un LLM est comme un interlocuteur qui a une excellente compréhension et mémoire à court terme...</li>
+      <li>...mais qui "redémarre" complètement entre deux conversations</li>
+      <li>Comme dans le film "Memento" - chaque interaction démarre sans souvenir des précédentes</li>
+    </ul>
+
+    <h3>Implications concrètes:</h3>
+    <ul>
+      <li>Les applications doivent gérer l'historique et le contexte elles-mêmes</li>
+      <li>Il faut "rappeler" au LLM toutes les informations importantes à chaque appel</li>
+      <li>Cette caractéristique rend difficile la création d'agents vraiment autonomes</li>
+      <li>C'est pourquoi les applications comme ChatGPT doivent maintenir l'historique de conversation</li>
+    </ul>
+
+    <p>Point crucial: Cette nature "stateless" est à la fois une force (sécurité, prévisibilité) et une faiblesse (manque d'autonomie).</p>
+    <p>Timing: 2 minutes pour cette explication de la nature stateless.</p>
+  </aside>
+</section>

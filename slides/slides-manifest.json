@@ -1,0 +1,204 @@
+{
+  "title": "MCP: La Révolution des API pour l'IA",
+  "description": "Présentation sur le Model Context Protocol (MCP) et son rôle dans l'interaction entre IA et outils",
+  "slides": [
+    {
+      "id": "01-title",
+      "file": "01-title.html",
+      "title": "Title Slide",
+      "description": "Introduction au MCP et aux 3U"
+    },
+    {
+      "id": "02-section-understanding-llms",
+      "file": "02-section-understanding-llms.html",
+      "title": "Section: Comprendre les LLMs",
+      "description": "Le langage est la clé"
+    },
+    {
+      "id": "03-importance-language",
+      "file": "03-importance-language.html",
+      "title": "L'importance du L dans LLM",
+      "description": "Le langage comme interface naturelle"
+    },
+    {
+      "id": "04-inference-engine",
+      "file": "04-inference-engine.html",
+      "title": "Moteur d'inférence",
+      "description": "Le cerveau du LLM"
+    },
+    {
+      "id": "05-context-window",
+      "file": "05-context-window.html",
+      "title": "Context Window",
+      "description": "La mémoire temporaire du LLM"
+    },
+    {
+      "id": "06-stateless-nature",
+      "file": "06-stateless-nature.html",
+      "title": "Nature Stateless",
+      "description": "Caractéristique fondamentale des LLMs"
+    },
+    {
+      "id": "07-functions-power",
+      "file": "07-functions-power.html",
+      "title": "La puissance des fonctions",
+      "description": "Comment les LLMs peuvent agir sur le monde"
+    },
+    {
+      "id": "08-function-workflow",
+      "file": "08-function-workflow.html",
+      "title": "Workflow des fonctions",
+      "description": "Diagramme de séquence MCP"
+    },
+    {
+      "id": "09-integration-challenge",
+      "file": "09-integration-challenge.html",
+      "title": "Défi de l'intégration",
+      "description": "Problèmes actuels et solutions"
+    },
+    {
+      "id": "10-section-mcp-solution",
+      "file": "10-section-mcp-solution.html",
+      "title": "Section: MCP Solution",
+      "description": "La lingua franca des agents IA"
+    },
+    {
+      "id": "11-mcp-architecture",
+      "file": "11-mcp-architecture.html",
+      "title": "Architecture MCP",
+      "description": "Vue d'ensemble de l'architecture"
+    },
+    {
+      "id": "12-mcp-universal-language",
+      "file": "12-mcp-universal-language.html",
+      "title": "MCP: Langage universel",
+      "description": "Le langage universel des outils pour IA"
+    },
+    {
+      "id": "13-section-three-superpowers",
+      "file": "13-section-three-superpowers.html",
+      "title": "Section: 3 super-pouvoirs",
+      "description": "Les 3 super-pouvoirs que MCP donne aux outils"
+    },
+    {
+      "id": "14-magic-trio",
+      "file": "14-magic-trio.html",
+      "title": "Le trio magique",
+      "description": "Resources, Actions, Prompts"
+    },
+    {
+      "id": "15-3u-rule",
+      "file": "15-3u-rule.html",
+      "title": "La règle des 3U",
+      "description": "Useful, Usable, Used"
+    },
+    {
+      "id": "16-section-mcp-vs-rest",
+      "file": "16-section-mcp-vs-rest.html",
+      "title": "Section: MCP vs REST",
+      "description": "Les API REST du futur"
+    },
+    {
+      "id": "17-powerful-analogy",
+      "file": "17-powerful-analogy.html",
+      "title": "Analogie puissante",
+      "description": "Comparaison REST vs MCP"
+    },
+    {
+      "id": "18-prompts-secret",
+      "file": "18-prompts-secret.html",
+      "title": "Les prompts: le secret",
+      "description": "Le secret d'un outil MCP réussi"
+    },
+    {
+      "id": "19-section-taking-action",
+      "file": "19-section-taking-action.html",
+      "title": "Section: Passer à l'action",
+      "description": "Comment passer à l'action avec MCP"
+    },
+    {
+      "id": "20-mcp-today",
+      "file": "20-mcp-today.html",
+      "title": "MCP aujourd'hui",
+      "description": "Déjà une réalité"
+    },
+    {
+      "id": "21-getting-started",
+      "file": "21-getting-started.html",
+      "title": "Comment démarrer",
+      "description": "Démarrer concrètement avec MCP"
+    },
+    {
+      "id": "22-section-future-challenges",
+      "file": "22-section-future-challenges.html",
+      "title": "Section: Futur et défis",
+      "description": "Demain et après-demain"
+    },
+    {
+      "id": "23-mcp-roadmap",
+      "file": "23-mcp-roadmap.html",
+      "title": "Feuille de route MCP",
+      "description": "La feuille de route du MCP"
+    },
+    {
+      "id": "24-section-concrete-example",
+      "file": "24-section-concrete-example.html",
+      "title": "Section: Exemple concret",
+      "description": "La mémoire collective pour les développeurs"
+    },
+    {
+      "id": "25-memory-models",
+      "file": "25-memory-models.html",
+      "title": "Modèles de mémoire",
+      "description": "Modèles de mémoire pour IA"
+    },
+    {
+      "id": "26-collective-memory-challenge",
+      "file": "26-collective-memory-challenge.html",
+      "title": "Défi mémoire collective",
+      "description": "Le défi de la mémoire collective"
+    },
+    {
+      "id": "27-collective-memory-benefits",
+      "file": "27-collective-memory-benefits.html",
+      "title": "Bénéfices mémoire collective",
+      "description": "Bénéfices concrets"
+    },
+    {
+      "id": "28-section-conclusion",
+      "file": "28-section-conclusion.html",
+      "title": "Section: Conclusion",
+      "description": "Ce qu'il faut retenir pour demain"
+    },
+    {
+      "id": "29-third-wave",
+      "file": "29-third-wave.html",
+      "title": "Troisième vague",
+      "description": "La troisième vague de la révolution numérique"
+    },
+    {
+      "id": "30-three-keys",
+      "file": "30-three-keys.html",
+      "title": "3 clés pour réussir",
+      "description": "3 clés pour réussir avec MCP"
+    },
+    {
+      "id": "31-power-issue",
+      "file": "31-power-issue.html",
+      "title": "Enjeu de pouvoir",
+      "description": "L'enjeu de pouvoir que personne ne voit venir"
+    },
+    {
+      "id": "32-action-plan",
+      "file": "32-action-plan.html",
+      "title": "Plan d'action",
+      "description": "Votre plan d'action"
+    },
+    {
+      "id": "33-thank-you",
+      "file": "33-thank-you.html",
+      "title": "Merci",
+      "description": "Questions et contacts"
+    }
+  ]
+}

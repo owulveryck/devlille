@@ -1,0 +1,57 @@
+<section>
+  <h2>Le défi de l'intégration des fonctions</h2>
+  <div class="split-layout">
+    <div class="split-left">
+      <h3>Problèmes actuels:</h3>
+      <ul>
+        <li>Nécessite de <strong>modifier le serveur d'inférence</strong></li>
+        <li><strong>Couplage fort</strong> entre LLM et fonctions</li>
+        <li>Difficulté pour <strong>ajouter</strong> de nouvelles capacités</li>
+        <li class="fragment">Besoin d'une approche <strong>standardisée</strong></li>
+      </ul>
+    </div>
+    <div class="split-right">
+      <h3>Solutions:</h3>
+      <ul>
+        <li><strong>Plugins/Add-ons</strong>: Architecture extensible</li>
+        <li><strong>API standardisées</strong>: Découplage</li>
+        <li><strong>MCP</strong>: Protocole universel</li>
+        <li class="fragment">Passage de <strong>l'intégration</strong> à <strong>l'interopérabilité</strong></li>
+      </ul>
+    </div>
+  </div>
+  <p class="fragment"><strong>Et c'est exactement ce que résout le Model Context Protocol (MCP)!</strong></p>
+  <aside class="notes">
+    <h3>Le problème d'extensibilité</h3>
+    <p>Expliquer le défi technique:</p>
+    <ul>
+      <li>Pour ajouter des fonctions à un LLM, il faut traditionnellement:</li>
+      <ol>
+        <li>Modifier le serveur d'inférence lui-même</li>
+        <li>Intégrer directement le code des fonctions au système</li>
+        <li>Redéployer l'ensemble à chaque ajout de fonction</li>
+      </ol>
+      <li>Cela crée plusieurs problèmes:</li>
+      <ul>
+        <li>Couplage fort entre l'IA et les outils</li>
+        <li>Complexité opérationnelle</li>
+        <li>Difficultés de maintenance</li>
+        <li>Impossibilité pour les utilisateurs d'étendre facilement les capacités</li>
+      </ul>
+    </ul>
+
+    <h3>La transition vers les solutions extensibles</h3>
+    <ul>
+      <li>Les premiers modèles ont tenté de résoudre ce problème avec des systèmes de plugins:</li>
+      <ul>
+        <li>ChatGPT Plugins (maintenant GPTs)</li>
+        <li>Claude avec Canvas</li>
+        <li>Différentes approches propriétaires</li>
+      </ul>
+      <li>Mais ces approches manquent de standardisation et d'interopérabilité</li>
+    </ul>
+
+    <p>Point de transition: C'est précisément ce problème que le MCP vient résoudre - créer un standard universel pour connecter n'importe quel LLM à n'importe quel outil.</p>
+    <p>Timing: 2 minutes pour cette explication du défi d'intégration.</p>
+  </aside>
+</section>

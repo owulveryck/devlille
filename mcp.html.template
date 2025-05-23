@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>MCP: Les API du Futur pour l'IA</title>
+
+    <meta name="description" content="Présentation sur le Model Context Protocol (MCP) et son rôle dans l'interaction entre IA et outils">
+    <meta name="author" content="Olivier Wulveryck">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/octo.css" id="theme">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css">
+    
+    <!-- Ajout de Mermaid.js -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.8.0/dist/mermaid.min.js"></script>
+    <script>
+      mermaid.initialize({
+        startOnLoad: false,  // Ne pas initialiser au chargement initial
+        securityLevel: 'loose',
+        theme: 'default',
+        flowchart: {
+          htmlLabels: true,
+          curve: 'linear'
+        },
+        sequence: {
+          mirrorActors: false
+        }
+      });
+    </script>
+
+    <style>
+    :root {
+    --r-main-font-size: 28px; /* Reduce text size from default 42px */
+    }
+
+    .reveal .slides {
+    font-size: var(--r-main-font-size);
+    }
+    
+    .mermaid {
+      margin: 0 auto;
+      text-align: center;
+    }
+  .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Définit l'espace horizontal ET vertical entre les éléments */
+    margin: 20px 0;
+  }
+  .flex-item {
+    /* width: calc(50% - 7.5px); Calcule la largeur pour deux colonnes avec un gap de 15px */
+    /* Ou plus simplement si le navigateur supporte bien flex-basis: */
+     flex-basis: calc(50% - 7.5px); /* Ajuster le 7.5px qui est la moitié du gap */
+     /* Alternative plus simple souvent suffisante: */
+     /* width: 48%; /* Ou une valeur similaire pour laisser de la place au gap */
+
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 10px;
+    box-sizing: border-box; /* Important si vous utilisez padding/border avec width % */
+  }
+  .flex-item h3 {
+    margin-top: 0;
+  }
+  .flex-item ul, .flex-item p {
+    font-size: 0.9em;
+  }
+  .flex-item.conseil {
+      background: #00AEC7;
+      color: white;
+  }
+   .flex-item.conseil p {
+      margin-bottom: 5px;
+  }
+
+    </style>
+  </head>
+
+  <body>
+    <img class="header-tete" src="coorp/images/tete.png"/>
+    <div class="footer-text">OCTO Part of Accenture © 2025 - All rights reserved</div>
+    <div class="better-way">There is a better way</div>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        {{range .Slides}}{{.Content}}{{end}}
+      </div>
+
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/search/search.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+
+    // Also available as an ES module, see:
+    // https://revealjs.com/initialization/
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      center: true,
+      hash: true,
+
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+    });
+
+    // Fonction pour initialiser Mermaid
+    function initMermaid() {
+      try {
+        // On force la ré-initialisation complète
+        mermaid.run({
+          querySelector: '.mermaid'
+        });
+      } catch (error) {
+        console.error('Erreur lors de l\'initialisation de Mermaid:', error);
+      }
+    }
+    
+    // Initialiser Mermaid quand Reveal est prêt
+    Reveal.addEventListener('ready', function() {
+      // Attendre un court délai pour s'assurer que le DOM est bien prêt
+      setTimeout(initMermaid, 500);
+    });
+    
+    // Initialiser Mermaid sur chaque transition de slide
+    Reveal.addEventListener('slidechanged', function(event) {
+      if (event.currentSlide.querySelector('.mermaid')) {
+        // Ré-initialiser Mermaid chaque fois qu'un slide contenant un diagramme est affiché
+        setTimeout(initMermaid, 200);
+      }
+    });
+
+    // Auto-reload functionality via WebSocket
+    function setupAutoReload() {
+      const protocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
+      const wsUrl = protocol + '//' + location.host + '/ws';
+      
+      function connect() {
+        const ws = new WebSocket(wsUrl);
+        
+        ws.onopen = function() {
+          console.log('Auto-reload WebSocket connected');
+        };
+        
+        ws.onmessage = function(event) {
+          if (event.data === 'reload') {
+            console.log('File changed, reloading page...');
+            location.reload();
+          }
+        };
+        
+        ws.onclose = function() {
+          console.log('Auto-reload WebSocket disconnected, attempting to reconnect...');
+          setTimeout(connect, 1000);
+        };
+        
+        ws.onerror = function(error) {
+          console.log('Auto-reload WebSocket error:', error);
+        };
+      }
+      
+      connect();
+    }
+    
+    // Start auto-reload when page is loaded
+    setupAutoReload();
+
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<section>
+  <h2>Context Window: la mémoire temporaire du LLM</h2>
+  <div class="split-layout">
+    <div class="split-left">
+      <ul>
+        <li>Espace "mémoire" pour la conversation en cours</li>
+        <li>Limitée en taille (4K-128K tokens selon modèles)</li>
+        <li>Tout ce qui est <strong>hors context window est oublié</strong></li>
+        <li class="fragment">Impact direct sur la <strong>pertinence</strong> des réponses</li>
+      </ul>
+    </div>
+    <div class="split-right">
+      <div style="background: #f5f5f5; padding: 15px; border-radius: 10px;">
+        <h3>Analogie:</h3>
+        <p>La context window est comme...</p>
+        <ul>
+          <li>La mémoire à court terme humaine</li>
+          <li>Une page blanche limitée</li>
+          <li>Un tableau qui s'efface quand il est plein</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">
+    <h3>La context window expliquée avec une analogie</h3>
+    <p>Utiliser cette comparaison pour clarifier:</p>
+    <ul>
+      <li>La context window est comme une conversation à une soirée:</li>
+      <li>Vous pouvez vous rappeler ce qui a été dit récemment (dans la fenêtre)</li>
+      <li>Mais vous oubliez ce qui a été dit il y a longtemps (hors de la fenêtre)</li>
+    </ul>
+
+    <h3>Implications pratiques:</h3>
+    <ul>
+      <li>L'IA ne "se souvient" que de ce qui est dans sa context window actuelle</li>
+      <li>Plus la fenêtre est grande, plus l'IA peut considérer d'informations à la fois</li>
+      <li>C'est pourquoi les grands modèles (32K ou 128K) peuvent traiter des documents entiers</li>
+      <li>C'est aussi pourquoi les IA "oublient" des détails mentionnés tôt dans une longue conversation</li>
+    </ul>
+
+    <p>Point crucial: Contrairement aux humains, le LLM n'a pas de mémoire à long terme native!</p>
+    <p>Timing: 2 minutes pour cette explication de la context window.</p>
+  </aside>
+</section>

@@ -1,0 +1,46 @@
+<section>
+  <h2>Moteur d'inférence: le cerveau du LLM</h2>
+  <div class="split-layout">
+    <div class="split-left">
+      <h3>Comment fonctionne un LLM:</h3>
+      <ul>
+        <li>L'<strong>inférence</strong> est le processus de génération de réponses</li>
+        <li>Prédiction du <strong>mot suivant le plus probable</strong></li>
+        <li>Basé sur les <strong>milliards de paramètres</strong> appris</li>
+        <li class="fragment">Les performances dépendent de la <strong>taille du modèle</strong> et de sa <strong>qualité d'entraînement</strong></li>
+      </ul>
+    </div>
+    <div class="split-right">
+      <pre><code class="text" data-trim>
+Utilisateur: Quel est la capitale de la France?
+Moteur d'inférence: [calcule la probabilité des mots suivants]
+"La" (5%)
+"capitale" (12%)
+"de" (8%)
+"la" (11%)
+"France" (20%)
+"est" (95%)
+"Paris" (99%)
+      </code></pre>
+    </div>
+  </div>
+  <aside class="notes">
+    <h3>Le processus d'inférence expliqué simplement</h3>
+    <p>Utiliser cette métaphore accessible:</p>
+    <ul>
+      <li>Un LLM fonctionne comme un "compléteur de phrases" ultra-sophistiqué</li>
+      <li>Il lit le texte précédent et prédit "Quel est le mot qui devrait suivre?"</li>
+      <li>Cette prédiction se base sur tous les textes qu'il a "lus" pendant son entraînement</li>
+      <li>Le moteur d'inférence est le composant qui exécute ces calculs en temps réel</li>
+    </ul>
+
+    <h3>Points techniques à mentionner brièvement:</h3>
+    <ul>
+      <li>Le calcul est effectué sur des GPU spécialisés</li>
+      <li>Chaque "token" (mot ou partie de mot) est prédit l'un après l'autre</li>
+      <li>La cohérence des réponses vient de la capacité du modèle à maintenir le contexte</li>
+    </ul>
+    
+    <p>Timing: 2 minutes pour cette explication accessible de l'inférence.</p>
+  </aside>
+</section>

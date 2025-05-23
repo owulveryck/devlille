@@ -1,0 +1,45 @@
+<section>
+  <div class="mermaid" style="margin-top: 20px;">
+sequenceDiagram
+    participant User
+    participant Inference Engine
+    participant LLM
+    participant MCP Client
+    participant MCP Server
+    User->>Inference Engine: Requête (ex: Météo Paris?)
+    Inference Engine->>LLM: Transmet la requête
+    LLM-->>Inference Engine: Génère texte avec appel fonction (get_weather, location: Paris)
+    Inference Engine->>MCP Client: Extrait et exécute l'appel fonction
+    MCP Client->>MCP Server: Exécute l'appel get_weather(Paris)
+    MCP Server-->>MCP Client: Résultat (ex: 25°C, ensoleillé)
+    MCP Client-->>Inference Engine: Fournit le résultat de la fonction
+    Inference Engine->>LLM: Transmet le résultat pour formulation finale
+    LLM-->>Inference Engine: Génère réponse avec le résultat intégré
+    Inference Engine->>User: Réponse finale (ex: Il fait 25°C à Paris.)
+  </div>
+  
+  <aside class="notes">
+    <h3>Le concept de fonction expliqué</h3>
+    <p>Points clés à couvrir:</p>
+    <ul>
+      <li>Une "fonction" pour un LLM est une capacité qui lui est donnée d'interagir avec le monde extérieur</li>
+      <li>Le processus se déroule en 4 étapes:</li>
+      <ol>
+        <li>On décrit la fonction au LLM (nom, description, paramètres attendus)</li>
+        <li>Quand l'utilisateur demande quelque chose qui nécessite cette fonction, le LLM génère un appel structuré en JSON</li>
+        <li>Le système intercepte cet appel, exécute réellement la fonction</li>
+        <li>Le résultat est renvoyé au LLM qui peut poursuivre sa réponse</li>
+      </ol>
+    </ul>
+
+    <h3>L'analogie de la délégation</h3>
+    <ul>
+      <li>C'est comme avoir un assistant très intelligent mais qui ne peut pas quitter son bureau</li>
+      <li>Les fonctions sont comme des "coursiers" qui vont chercher des informations ou effectuer des actions pour lui</li>
+      <li>L'assistant (LLM) doit remplir un formulaire standardisé pour faire appel à ces coursiers</li>
+    </ul>
+
+    <p>Point crucial: C'est cette capacité qui permet de passer d'un simple "conversationaliste" à un véritable agent capable d'actions.</p>
+    <p>Timing: 3 minutes pour cette explication des fonctions.</p>
+  </aside>
+</section>

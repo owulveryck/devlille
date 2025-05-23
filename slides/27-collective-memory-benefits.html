@@ -1,0 +1,72 @@
+        <section>
+          <h2>Le défi de la mémoire collective</h2>
+          <div class="fragment">
+            <h3>Bénéfices concrets:</h3>
+            <ul>
+              <li>Les IA ont accès aux <strong>décisions architecturales</strong> de l'équipe</li>
+              <li>Chaque interaction <strong>enrichit</strong> la base commune</li>
+              <li>Les <strong>bonnes pratiques</strong> sont automatiquement partagées</li>
+              <li>Les nouveaux membres bénéficient immédiatement du <strong>savoir collectif</strong></li>
+            </ul>
+          </div>
+
+          <aside class="notes">
+            <h3>Le problème de mémoire des IA - illustré concrètement</h3>
+            <p>Présenter ce problème avec une analogie puissante:</p>
+
+            <ul>
+              <li>Imaginez une équipe où chaque personne perd la mémoire chaque soir:
+                <ul>
+                  <li>Chaque matin, tout le monde doit réapprendre les décisions prises hier</li>
+                  <li>Impossible de capitaliser sur les expériences passées</li>
+                  <li>Chacun redécouvre les mêmes problèmes de manière isolée</li>
+                </ul>
+              </li>
+              <li>C'est exactement ce qui se passe avec les assistants IA actuels:
+                <ul>
+                  <li>ChatGPT, Copilot et autres assistants ont une mémoire limitée à la session</li>
+                  <li>Entre chaque session ou utilisateur, tout est "oublié"</li>
+                  <li>Le même problème peut être résolu 10 fois différemment par 10 membres d'équipe</li>
+                </ul>
+              </li>
+            </ul>
+
+            <h3>La solution MCP expliquée</h3>
+            <ul>
+              <li><strong>Architecture</strong>: Un serveur MCP exposant un graphe de connaissances
+                <ul>
+                  <li>Format simple: stockage de triplets (Sujet, Prédicat, Objet)</li>
+                  <li>Exemple: "Notre système" "utilise" "PostgreSQL"</li>
+                </ul>
+              </li>
+              <li><strong>Fonctionnement</strong>:
+                <ul>
+                  <li>Les IA peuvent interroger ce graphe pour comprendre le contexte d'équipe</li>
+                  <li>Elles peuvent également y ajouter des informations pertinentes</li>
+                  <li>Toute l'équipe bénéficie des interactions individuelles</li>
+                </ul>
+              </li>
+            </ul>
+
+            <h3>L'importance des prompts MCP ici</h3>
+            <p>Exemple concret qui illustre la valeur des prompts:</p>
+            <ul>
+              <li>Sans prompt guidant, chaque IA crée des relations différentes:
+                <ul>
+                  <li>"PostgreSQL" "est la base de données de" "Notre système"</li>
+                  <li>"Notre système" "dépend de" "PostgreSQL"</li>
+                  <li>"On utilise" "PostgreSQL" "pour notre projet"</li>
+                </ul>
+              </li>
+              <li>Avec prompts MCP appropriés:
+                <ul>
+                  <li>Vocabulaire contrôlé: seuls certains prédicats sont autorisés</li>
+                  <li>Relations standardisées: uniquement "utilise", "dépend de", etc.</li>
+                  <li>Résultat: graphe cohérent qui peut être interrogé efficacement</li>
+                </ul>
+              </li>
+            </ul>
+
+            <p>Timing: 3 minutes pour cet exemple concret et parlant.</p>
+          </aside>
+        </section>

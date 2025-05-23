@@ -1,0 +1,56 @@
+        <section>
+          <h2>MCP: Le langage universel des outils pour IA</h2>
+          <div class="split-layout">
+            <div class="split-left">
+              <ul>
+                <li>Lancé fin 2024 par <em>Anthropic</em>, rapidement adopté</li>
+                <li><strong>Un standard ouvert permettant aux IA de découvrir et d'utiliser des outils externes de manière autonome et standardisée</strong></li>
+                <li>Donne un <strong>mode d'emploi autodescriptif</strong> pour chaque fonction</li>
+                <li class="fragment">Les IA deviennent enfin <strong>agents</strong> capables d'agir!</li>
+              </ul>
+            </div>
+            <div class="split-right">
+              <pre><code class="json" data-trim>
+                {
+                  "function_name": "get_weather",
+                  "description": "Récupère la météo pour un lieu.",
+                  "arguments": [
+                    {
+                      "name": "location",
+                      "type": "string",
+                      "description": "La ville à consulter."
+                    }
+                  ]
+                }
+              </code></pre>
+            </div>
+          </div>
+          <aside class="notes">
+            <h3>MCP expliqué simplement</h3>
+            <p>Présenter MCP avec une analogie claire:</p>
+
+            <ul>
+              <li>MCP est comme une "étiquette universelle" pour les outils numériques</li>
+              <li>Chaque outil se présente: "Voici qui je suis, ce que je peux faire, et comment m'utiliser"</li>
+              <li>L'IA peut alors "lire l'étiquette" et savoir exactement comment interagir avec l'outil</li>
+            </ul>
+
+            <h3>Points clés à souligner</h3>
+            <ul>
+              <li><strong>Autodescription</strong>: L'outil se décrit lui-même en langage que l'IA comprend</li>
+              <li><strong>Standardisation</strong>: Format uniforme adopté par toutes les grandes entreprises d'IA</li>
+              <li><strong>Simplicité</strong>: Basé sur JSON, technologie largement maîtrisée</li>
+            </ul>
+
+            <h3>L'exemple à l'écran</h3>
+            <p>Expliquer l'exemple de code affiché:</p>
+            <ul>
+              <li>Nom de fonction clair: "get_weather"</li>
+              <li>Description en langage naturel de ce qu'elle fait</li>
+              <li>Arguments requis avec leurs types et explications</li>
+            </ul>
+
+            <p>Clé de compréhension: MCP n'est pas une technologie compliquée - c'est une façon standardisée de décrire des outils pour que les IA puissent les comprendre et les utiliser sans intervention humaine.</p>
+            <p>Timing: 2 minutes pour cette explication accessible du MCP.</p>
+          </aside>
+        </section>

@@ -1,0 +1,36 @@
+<section>
+  <h2>La puissance des fonctions avec les LLMs</h2>
+  <div class="split-layout">
+    <div class="split-left">
+      <ul>
+        <li>Les fonctions permettent au LLM <strong>d'agir</strong> sur le monde</li>
+        <li>Le LLM <strong>génère du JSON</strong> pour appeler une fonction</li>
+        <li>Le serveur <strong>exécute</strong> et renvoie le résultat</li>
+        <li class="fragment">C'est ce qui transforme un <strong>modèle</strong> en <strong>agent</strong></li>
+      </ul>
+    </div>
+    <div class="split-right">
+      <pre><code class="json" data-trim>
+// Définition de la fonction
+{
+  "name": "get_weather",
+  "description": "Obtenir la météo",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "description": "La ville"
+    }
+  }
+}
+
+// Appel par le LLM
+{
+  "name": "get_weather",
+  "arguments": {
+    "location": "Paris"
+  }
+}
+      </code></pre>
+    </div>
+  </div>
+</section>
