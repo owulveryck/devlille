@@ -1,0 +1,5 @@
+localhost:8443 {
+    root * .
+    file_server browse
+    tls internal
+}

@@ -1,0 +1,1224 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Formation MCP: Les API du Futur pour l'IA</title>
+
+    <meta name="description" content="Support de formation sur le Model Context Protocol (MCP) et son utilisation pratique">
+    <meta name="author" content="Olivier Wulveryck">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/octo.css" id="theme">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css">
+    
+    <!-- Ajout de Mermaid.js -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.8.0/dist/mermaid.min.js"></script>
+    <script>
+      mermaid.initialize({
+        startOnLoad: false,  // Ne pas initialiser au chargement initial
+        securityLevel: 'loose',
+        theme: 'default',
+        flowchart: {
+          htmlLabels: true,
+          curve: 'linear'
+        },
+        sequence: {
+          mirrorActors: false
+        }
+      });
+    </script>
+
+    <style>
+    :root {
+    --r-main-font-size: 28px; /* Reduce text size from default 42px */
+    }
+
+    .reveal .slides {
+    font-size: var(--r-main-font-size);
+    }
+    
+    .mermaid {
+      margin: 0 auto;
+      text-align: center;
+    }
+  .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Définit l'espace horizontal ET vertical entre les éléments */
+    margin: 20px 0;
+  }
+  .flex-item {
+    /* width: calc(50% - 7.5px); Calcule la largeur pour deux colonnes avec un gap de 15px */
+    /* Ou plus simplement si le navigateur supporte bien flex-basis: */
+     flex-basis: calc(50% - 7.5px); /* Ajuster le 7.5px qui est la moitié du gap */
+     /* Alternative plus simple souvent suffisante: */
+     /* width: 48%; /* Ou une valeur similaire pour laisser de la place au gap */
+
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 10px;
+    box-sizing: border-box; /* Important si vous utilisez padding/border avec width % */
+  }
+  .flex-item h3 {
+    margin-top: 0;
+  }
+  .flex-item ul, .flex-item p {
+    font-size: 0.9em;
+  }
+  .flex-item.conseil {
+      background: #00AEC7;
+      color: white;
+  }
+   .flex-item.conseil p {
+      margin-bottom: 5px;
+  }
+
+  .agenda-box {
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+
+  .agenda-time {
+    font-weight: bold;
+    color: #00AEC7;
+  }
+
+  .highlight-box {
+    background: #00AEC7;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+
+  .demo-box {
+    border: 2px solid #00AEC7;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 20px 0;
+  }
+
+  .workshop-box {
+    background: #f0f8ff;
+    border-left: 5px solid #00AEC7;
+    padding: 15px;
+    margin: 15px 0;
+  }
+
+  .two-columns {
+    display: flex;
+    gap: 20px;
+  }
+
+  .column {
+    flex: 1;
+  }
+
+    </style>
+  </head>
+
+  <body>
+    <img class="header-tete" src="coorp/images/tete.png"/>
+    <div class="footer-text">OCTO Part of Accenture © 2025 - All rights reserved</div>
+    <div class="better-way">There is a better way</div>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <!-- Title Slide -->
+        <section>
+          <h2>Formation MCP</h2>
+          <h3>Les API du Futur pour l'Intelligence Artificielle</h3>
+          <p><em>Donnez des super-pouvoirs à vos agents IA</em></p>
+          <p class="fragment">Une journée pour comprendre et expérimenter</p>
+          <aside class="notes">
+            <h3>Notes pour l'introduction</h3>
+            <ul>
+              <li>Souhaitez la bienvenue aux participants</li>
+              <li>Présentez-vous et présentez les objectifs de la journée</li>
+              <li>Expliquez le format: théorie le matin, pratique l'après-midi</li>
+              <li>Demandez qui a déjà utilisé des LLMs ou MCP</li>
+            </ul>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Programme de la journée</h2>
+
+          <div class="two-columns">
+            <div class="column">
+              <div class="agenda-box">
+                <h3>Matinée: Fondamentaux</h3>
+                <p><span class="agenda-time">8h30 - 9h00</span> : Accueil</p>
+                <p><span class="agenda-time">9h00 - 10h30</span> : Plénière MCP</p>
+                <p><span class="agenda-time">10h30 - 10h45</span> : Pause</p>
+                <p><span class="agenda-time">10h45 - 12h30</span> : Démos & Cas d'usage</p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="agenda-box">
+                <h3>Après-midi: Pratique</h3>
+                <p><span class="agenda-time">13h30 - 16h30</span> : Ateliers pratiques</p>
+                <p><span class="agenda-time">16h30 - 17h30</span> : Restitution</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="highlight-box fragment">
+            <h3>Objectifs</h3>
+            <ul>
+              <li>Comprendre les fondamentaux des LLMs et du MCP</li>
+              <li>Maîtriser le fonctionnement technique des appels au LLM</li>
+              <li>Découvrir les cas d'usage concrets</li>
+              <li>Expérimenter la création d'outils MCP</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Contexte de la formation -->
+        <section data-background="#00AEC7">
+          <h1>Contexte de la formation</h1>
+        </section>
+
+        <section>
+          <h2>Audience et attentes</h2>
+          
+          <div class="flex-container">
+            <div class="flex-item">
+              <h3>🧑‍💻 Pour les développeurs</h3>
+              <ul>
+                <li>Comprendre le fonctionnement technique</li>
+                <li>Créer des outils MCP efficaces</li>
+                <li>Intégrer MCP dans l'architecture existante</li>
+              </ul>
+            </div>
+            <div class="flex-item">
+              <h3>🧪 Pour les data scientists</h3>
+              <ul>
+                <li>Exploiter les capacités des LLMs</li>
+                <li>Enrichir les modèles avec des données réelles</li>
+                <li>Créer des agents IA plus performants</li>
+              </ul>
+            </div>
+            <div class="flex-item">
+              <h3>💼 Pour les profils métiers</h3>
+              <ul>
+                <li>Comprendre les possibilités offertes</li>
+                <li>Identifier les cas d'usage à valeur</li>
+                <li>Définir les besoins business</li>
+              </ul>
+            </div>
+            <div class="flex-item conseil">
+              <h3>💡 Notre approche</h3>
+              <p>Travailler ensemble sur des cas concrets</p>
+              <p>Les équipes mixtes favorisent des solutions complètes</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section sur la compréhension des LLMs -->
+        <section data-background="#00AEC7">
+          <h1>1. Comprendre les LLMs: Le Langage est la clé</h1>
+        </section>
+
+        <section>
+          <h2>L'importance du "L" dans LLM</h2>
+          <div class="split-layout">
+            <div class="split-left">
+              <ul>
+                <li><strong>L</strong>arge <strong>L</strong>anguage <strong>M</strong>odel</li>
+                <li>Le <strong>langage</strong> est l'interface naturelle entre humains</li>
+                <li>Les LLMs comprennent et génèrent du <strong>texte comme un humain</strong></li>
+                <li class="fragment">Nous passons de la <strong>programmation</strong> à la <strong>conversation</strong></li>
+              </ul>
+            </div>
+            <div class="split-right">
+              <h3>Transformation fondamentale:</h3>
+              <ul>
+                <li>Code → Texte</li>
+                <li>Requêtes → Questions</li>
+                <li>Inputs/Outputs → Dialogues</li>
+                <li>API → Conversation</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Moteur d'inférence: le cerveau du LLM</h2>
+          <div class="split-layout">
+            <div class="split-left">
+              <h3>Comment fonctionne un LLM:</h3>
+              <ul>
+                <li>L'<strong>inférence</strong> est le processus de génération de réponses</li>
+                <li>Prédiction du <strong>mot suivant le plus probable</strong></li>
+                <li>Basé sur les <strong>milliards de paramètres</strong> appris</li>
+                <li class="fragment">Les performances dépendent de la <strong>taille du modèle</strong> et de sa <strong>qualité d'entraînement</strong></li>
+              </ul>
+            </div>
+            <div class="split-right">
+              <pre><code class="text" data-trim>
+Utilisateur: Quel est la capitale de la France?
+Moteur d'inférence: [calcule la probabilité des mots suivants]
+"La" (5%)
+"capitale" (12%)
+"de" (8%)
+"la" (11%)
+"France" (20%)
+"est" (95%)
+"Paris" (99%)
+              </code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Context Window: la mémoire temporaire du LLM</h2>
+          <div class="split-layout">
+            <div class="split-left">
+              <ul>
+                <li>Espace "mémoire" pour la conversation en cours</li>
+                <li>Limitée en taille (4K-128K tokens selon modèles)</li>
+                <li>Tout ce qui est <strong>hors context window est oublié</strong></li>
+                <li class="fragment">Impact direct sur la <strong>pertinence</strong> des réponses</li>
+              </ul>
+            </div>
+            <div class="split-right">
+              <div style="background: #f5f5f5; padding: 15px; border-radius: 10px;">
+                <h3>Analogie:</h3>
+                <p>La context window est comme...</p>
+                <ul>
+                  <li>La mémoire à court terme humaine</li>
+                  <li>Une page blanche limitée</li>
+                  <li>Un tableau qui s'efface quand il est plein</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Caractéristique fondamentale: LLMs sont Stateless</h2>
+          <div class="split-layout">
+            <div class="split-left">
+              <h3>Qu'est-ce que "stateless"?</h3>
+              <ul>
+                <li>Pas de <strong>mémoire persistante</strong> entre les appels</li>
+                <li>Tout contexte doit être <strong>explicitement fourni</strong></li>
+                <li>Comme une personne avec <strong>amnésie</strong> à court terme</li>
+                <li class="fragment">Grande limitation pour les <strong>agents autonomes</strong></li>
+              </ul>
+            </div>
+            <div class="split-right">
+              <pre><code class="text" data-trim>
+Appel 1:
+Utilisateur: "Mon nom est Olivier"
+LLM: "Bonjour Olivier!"
+
+Appel 2 (nouveau contexte):
+Utilisateur: "Quel est mon nom?"
+LLM: "Je ne connais pas votre nom,
+      vous ne me l'avez pas dit."
+              </code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>La puissance des fonctions avec les LLMs</h2>
+          <div class="split-layout">
+            <div class="split-left">
+              <ul>
+                <li>Les fonctions permettent au LLM <strong>d'agir</strong> sur le monde</li>
+                <li>Le LLM <strong>génère du JSON</strong> pour appeler une fonction</li>
+                <li>Le serveur <strong>exécute</strong> et renvoie le résultat</li>
+                <li class="fragment">C'est ce qui transforme un <strong>modèle</strong> en <strong>agent</strong></li>
+              </ul>
+            </div>
+            <div class="split-right">
+              <pre><code class="json" data-trim>
+// Définition de la fonction
+{
+  "name": "get_weather",
+  "description": "Obtenir la météo",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "description": "La ville"
+    }
+  }
+}
+
+// Appel par le LLM
+{
+  "name": "get_weather",
+  "arguments": {
+    "location": "Paris"
+  }
+}
+              </code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="mermaid" style="margin-top: 20px;">
+sequenceDiagram
+    participant User
+    participant Inference Engine
+    participant LLM
+    participant MCP Client
+    participant MCP Server
+    User->>Inference Engine: Requête (ex: Météo Paris?)
+    Inference Engine->>LLM: Transmet la requête
+    LLM-->>Inference Engine: Génère texte avec appel fonction (get_weather, location: Paris)
+    Inference Engine->>MCP Client: Extrait et exécute l'appel fonction
+    MCP Client->>MCP Server: Exécute l'appel get_weather(Paris)
+    MCP Server-->>MCP Client: Résultat (ex: 25°C, ensoleillé)
+    MCP Client-->>Inference Engine: Fournit le résultat de la fonction
+    Inference Engine->>LLM: Transmet le résultat pour formulation finale
+    LLM-->>Inference Engine: Génère réponse avec le résultat intégré
+    Inference Engine->>User: Réponse finale (ex: Il fait 25°C à Paris.)
+          </div>
+        </section>
+
+        <section>
+          <h2>Le défi de l'intégration des fonctions</h2>
+          <div class="split-layout">
+            <div class="split-left">
+              <h3>Problèmes actuels:</h3>
+              <ul>
+                <li>Nécessite de <strong>modifier le serveur d'inférence</strong></li>
+                <li><strong>Couplage fort</strong> entre LLM et fonctions</li>
+                <li>Difficulté pour <strong>ajouter</strong> de nouvelles capacités</li>
+                <li class="fragment">Besoin d'une approche <strong>standardisée</strong></li>
+              </ul>
+            </div>
+            <div class="split-right">
+              <h3>Solutions:</h3>
+              <ul>
+                <li><strong>Plugins/Add-ons</strong>: Architecture extensible</li>
+                <li><strong>API standardisées</strong>: Découplage</li>
+                <li><strong>MCP</strong>: Protocole universel</li>
+                <li class="fragment">Passage de <strong>l'intégration</strong> à <strong>l'interopérabilité</strong></li>
+              </ul>
+            </div>
+          </div>
+          <p class="fragment"><strong>Et c'est exactement ce que résout le Model Context Protocol (MCP)!</strong></p>
+        </section>
+
+        <!-- Section 2: Introduction au MCP -->
+        <section data-background="#00AEC7">
+          <h1>2. Introduction au MCP: La <i>lingua franca</i> des agents IA</h1>
+        </section>
+
+        <section>
+          <h2>L'architecture MCP en un coup d'œil</h2>
+          <p><img src="mcp/architecture.png" alt="Architecture MCP montrant Hôte, Client MCP et Serveurs MCP" height="300"></p>
+          <div>
+            <p class="fragment"><strong>Hôte</strong> : ChatGPT, Claude, etc. qui contient le modèle de langage</p>
+            <p class="fragment"><strong>Client MCP</strong> : "traducteur universel" entre l'IA et les outils</p>
+            <p class="fragment"><strong>Serveurs MCP</strong> : exposent différents outils et capacités</p>
+          </div>
+          <p class="fragment"><strong>MCP rend les outils numériques <em>visibles et utilisables</em> par n'importe quelle IA</strong></p>
+        </section>
+
+        <section>
+          <h2>MCP: Le langage universel des outils pour IA</h2>
+          <div class="split-layout">
+            <div class="split-left">
+              <ul>
+                <li>Lancé fin 2024 par <em>Anthropic</em>, rapidement adopté</li>
+                <li><strong>Un standard ouvert permettant aux IA de découvrir et d'utiliser des outils externes de manière autonome et standardisée</strong></li>
+                <li>Donne un <strong>mode d'emploi autodescriptif</strong> pour chaque fonction</li>
+                <li class="fragment">Les IA deviennent enfin <strong>agents</strong> capables d'agir!</li>
+              </ul>
+            </div>
+            <div class="split-right">
+              <pre><code class="json" data-trim>
+                {
+                  "function_name": "get_weather",
+                  "description": "Récupère la météo pour un lieu.",
+                  "arguments": [
+                    {
+                      "name": "location",
+                      "type": "string",
+                      "description": "La ville à consulter."
+                    }
+                  ]
+                }
+              </code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 3: Le MCP - cadre technique et fonctionnel -->
+        <section data-background="#00AEC7">
+          <h1>Les 3 super-pouvoirs que MCP donne aux outils</h1>
+        </section>
+
+        <section>
+          <h2>Le trio magique du MCP</h2>
+          <div class="split-layout">
+            <div class="split-left">
+              <div class="fragment">
+              <h3><span style="font-size: 1.4em;">👁️</span> 1. Resources</h3>
+              <ul>
+                <li><strong>Les yeux</strong> de l'IA</li>
+                <li>Accès en lecture aux données</li>
+                <li>Ex: lire un profil, consulter un prix</li>
+              </ul>
+              </div>
+              <div class="fragment">
+              <h3><span style="font-size: 1.4em;">✋</span> 2. Actions</h3>
+              <ul>
+                <li><strong>Les mains</strong> de l'IA</li>
+                <li>Modifier l'environnement</li>
+                <li>Ex: envoyer un email, réserver</li>
+              </ul>
+              </div>
+            </div>
+            <div class="split-right">
+              <div class="fragment">
+              <h3><span style="font-size: 1.4em;">🧠</span> 3. Prompts</h3>
+              <ul>
+                <li><strong>Le mode d'emploi</strong></li>
+                <li>Guide l'IA dans l'utilisation</li>
+                <li>Le composant souvent négligé mais crucial!</li>
+              </ul>
+              </div>
+              <p class="fragment"><strong>C'est l'association des trois qui crée la vraie puissance!</strong></p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>La règle des 3U: créer des outils que les IA utiliseront vraiment</h2>
+
+          <div class="split-layout">
+            <div class="split-left">
+              <div class="fragment"> 
+              <h3>🎯 <strong>Useful</strong> (Utile)</h3>
+              <ul>
+                <li>Résout un <strong>vrai problème</strong></li>
+                <li>Apporte une <strong>valeur unique</strong></li>
+                <li>A un <strong>but clair</strong></li>
+              </ul>
+</div>
+            </div>
+            <div class="split-right">
+              <div class="fragment"> 
+              <h3>🔌 <strong>Usable</strong> (Utilisable)</h3>
+              <ul>
+                <li>Techniquement <strong>accessible</strong></li>
+                <li>Suit le <strong>standard MCP</strong></li>
+                <li>Interface <strong>bien définie</strong></li>
+              </ul>
+            </div>
+</div>
+          </div>
+
+          <div class="fragment">
+            <h3>👆 <strong>Used</strong> (Utilisé) - Le plus souvent négligé!</h3>
+            <ul>
+              <li>L'IA <strong>choisit réellement</strong> d'utiliser votre outil</li>
+              <li>Clarté des noms, descriptions et <strong>exemples</strong></li>
+              <li>Les <strong>Prompts MCP</strong> sont la clé du succès ici</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Section 4: MCP vs API REST -->
+        <section data-background="#00AEC7">
+          <h1>3. MCP: Les API REST du futur</h1>
+        </section>
+
+        <section>
+          <h2>Une analogie puissante</h2>
+
+          <div class="split-layout">
+            <div class="split-left">
+              <h3>🧑‍💻 API REST = révolution du Web</h3>
+              <ul>
+                <li>Pour les <strong>humains</strong></li>
+                <li>A propulsé les <strong>applications web</strong></li>
+                <li>Interfaces pour les <strong>développeurs</strong></li>
+              </ul>
+            </div>
+            <div class="split-right">
+              <h3>🤖 MCP = révolution des agents</h3>
+              <ul>
+                <li>Pour les <strong>IA</strong></li>
+                <li>Va propulser les <strong>agents autonomes</strong></li>
+                <li>Interfaces pour les <strong>modèles de langage</strong></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="fragment">
+            <table style="margin-top: 20px; width: 80%; margin-left: auto; margin-right: auto;">
+              <thead>
+                <tr>
+                  <th>API REST</th>
+                  <th>MCP</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>GET</code> (lecture)</td>
+                  <td><strong>Resources</strong> (lecture)</td>
+                </tr>
+                <tr>
+                  <td><code>POST</code> (action)</td>
+                  <td><strong>Actions</strong> (action)</td>
+                </tr>
+                <tr>
+                  <td><em>n'existe pas</em></td>
+                  <td><strong>Prompts</strong> (guide)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2>Les prompts: le secret d'un outil MCP réussi</h2>
+
+          <div class="split-layout">
+            <div class="split-left">
+              <h3>🧠 Ce qu'ils font:</h3>
+              <ul>
+                <li>Guident l'IA vers le <strong>bon outil</strong> au bon moment</li>
+                <li>Fournissent un <strong>mode d'emploi contextuel</strong></li>
+                <li>Définissent des <strong>workflows</strong> spécifiques</li>
+              </ul>
+            </div>
+            <div class="split-right">
+              <h3>📊 Exemple d'usage:</h3>
+              <ul>
+                <li>Graphe de connaissances structuré</li>
+                <li>Ontologie commune pour la cohérence</li>
+                <li>Vocabulaire standardisé (au lieu de synonymes aléatoires)</li>
+              </ul>
+            </div>
+          </div>
+
+          <p class="fragment"><strong>Sans bons prompts, même l'outil le plus utile sera ignoré par l'IA!</strong></p>
+          <p class="fragment" style="font-size: 0.8em; margin-top: 15px;">
+            <i>Exemple : Sans prompt guidé, l'IA pourrait utiliser "créer_ticket" ou "log_issue". Avec un prompt spécifiant l'ontologie, elle utilisera toujours "enregistrer_incident(description, priorité)".</i>
+          </p>
+        </section>
+
+        <!-- Pause café -->
+        <section data-background="#00AEC7">
+          <h1>10h30 - 10h45 : Pause café ☕</h1>
+        </section>
+
+        <!-- Section 6: Adoption, cas d'usage et approche -->
+        <section data-background="#00AEC7">
+          <h1>État actuel de l'adoption du MCP</h1>
+        </section>
+
+        <section>
+          <h2>MCP aujourd'hui: déjà une réalité</h2>
+
+          <div class="split-layout">
+            <div class="split-left">
+              <h3>🚀 Adoption rapide:</h3>
+              <ul>
+                <li>Standard adopté par <strong>tous les grands acteurs</strong>: Anthropic, OpenAI, Google</li>
+                <li>Momentum croissant dans l'<strong>industrie du logiciel</strong></li>
+                <li>Intégrations <strong>multiplateformes</strong> en cours</li>
+              </ul>
+            </div>
+            <div class="split-right">
+              <h3>🛠️ Où le voir en action:</h3>
+              <ul>
+                <li><strong>Outils dev</strong>: Claude Code, Cursor, GitHub Copilot</li>
+                <li><strong>Plateformes</strong>: Salesforce Einstein, ServiceNow</li>
+                <li><strong>Systèmes internes</strong>: Bases de connaissances, CI/CD</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="fragment">
+            <h3>⚠️ Le moment critique: être présent dès maintenant</h3>
+            <p>Les premiers à maîtriser MCP créeront les outils qui deviendront incontournables</p>
+          </div>
+        </section>
+
+        <section>
+          <h2>Cas d'usage de mémoire collective</h2>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+            <div style="width: 30%; text-align: center;">
+              <h3>🧠 Aujourd'hui</h3>
+              <div style="height: 150px; background: #f5f5f5; padding: 10px; border-radius: 5px; display: flex; flex-direction: column; justify-content: center;">
+                <p style="margin: 0; font-weight: bold;">Mémoire isolée</p>
+                <div style="display: flex; justify-content: space-around; margin-top: 15px;">
+                  <div style="text-align: center;">
+                    <div style="width: 40px; height: 40px; background: #00AEC7; border-radius: 50%; margin: 0 auto; display: flex; justify-content: center; align-items: center; color: white; font-weight: bold;">IA</div>
+                    <div style="width: 30px; height: 30px; background: #ddd; border-radius: 50%; margin: 5px auto; font-size: 10px; display: flex; justify-content: center; align-items: center;">📝</div>
+                  </div>
+                  <div style="text-align: center;">
+                    <div style="width: 40px; height: 40px; background: #00AEC7; border-radius: 50%; margin: 0 auto; display: flex; justify-content: center; align-items: center; color: white; font-weight: bold;">IA</div>
+                    <div style="width: 30px; height: 30px; background: #ddd; border-radius: 50%; margin: 5px auto; font-size: 10px; display: flex; justify-content: center; align-items: center;">📝</div>
+                  </div>
+                  <div style="text-align: center;">
+                    <div style="width: 40px; height: 40px; background: #00AEC7; border-radius: 50%; margin: 0 auto; display: flex; justify-content: center; align-items: center; color: white; font-weight: bold;">IA</div>
+                    <div style="width: 30px; height: 30px; background: #ddd; border-radius: 50%; margin: 5px auto; font-size: 10px; display: flex; justify-content: center; align-items: center;">📝</div>
+                  </div>
+                </div>
+              </div>
+              <p>Chaque IA a sa propre mémoire <strong>isolée</strong></p>
+            </div>
+            <div style="width: 30%; text-align: center;">
+              <h3>🔄 Problèmes</h3>
+              <ul style="text-align: left; font-size: 0.8em;">
+                <li>Perte de contexte entre sessions</li>
+                <li>Duplication du travail d'équipe</li>
+                <li>Inconsistance des connaissances</li>
+                <li>Pas de mémoire institutionnelle</li>
+              </ul>
+            </div>
+            <div style="width: 30%; text-align: center;">
+              <h3>🚀 Solution MCP</h3>
+              <div style="height: 150px; background: #f5f5f5; padding: 10px; border-radius: 5px; display: flex; flex-direction: column; justify-content: center;">
+                <p style="margin: 0; font-weight: bold;">Mémoire partagée</p>
+                <div style="display: flex; justify-content: space-around; align-items: center; margin-top: 15px;">
+                  <div style="text-align: center;">
+                    <div style="width: 40px; height: 40px; background: #00AEC7; border-radius: 50%; margin: 0 auto; display: flex; justify-content: center; align-items: center; color: white; font-weight: bold;">IA</div>
+                  </div>
+                  <div style="text-align: center;">
+                    <div style="width: 40px; height: 40px; background: #00AEC7; border-radius: 50%; margin: 0 auto; display: flex; justify-content: center; align-items: center; color: white; font-weight: bold;">IA</div>
+                  </div>
+                  <div style="text-align: center;">
+                    <div style="width: 40px; height: 40px; background: #00AEC7; border-radius: 50%; margin: 0 auto; display: flex; justify-content: center; align-items: center; color: white; font-weight: bold;">IA</div>
+                  </div>
+                </div>
+                <div style="width: 70%; height: 40px; background: #00AEC7; border-radius: 10px; margin: 15px auto 0; display: flex; justify-content: center; align-items: center; color: white; font-weight: bold;">MCP KB</div>
+              </div>
+              <p>Graphe de connaissances <strong>partagé</strong> via MCP</p>
+            </div>
+          </div>
+
+          <div class="fragment">
+            <h3>Bénéfices concrets:</h3>
+            <ul>
+              <li>Les IA ont accès aux <strong>décisions architecturales</strong> de l'équipe</li>
+              <li>Chaque interaction <strong>enrichit</strong> la base commune</li>
+              <li>Les <strong>bonnes pratiques</strong> sont automatiquement partagées</li>
+              <li>Les nouveaux membres bénéficient immédiatement du <strong>savoir collectif</strong></li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Démonstration technique -->
+        <section data-background="#00AEC7">
+          <h1>Démonstration technique du MCP</h1>
+        </section>
+
+        <section>
+          <h2>Anatomie d'un serveur MCP</h2>
+          
+          <div class="demo-box">
+            <h3>Structure de base</h3>
+            <pre><code class="javascript" data-trim>
+// Exemple simplifié d'un serveur MCP en Node.js
+const express = require('express');
+const app = express();
+app.use(express.json());
+
+// Définition des fonctions disponibles
+const functions = {
+  get_weather: {
+    description: "Récupère la météo pour un lieu",
+    arguments: [{
+      name: "location", 
+      type: "string",
+      description: "La ville à consulter"
+    }]
+  }
+};
+
+// Endpoint de découverte des capacités
+app.get('/mcp/capabilities', (req, res) => {
+  res.json({ functions });
+});
+
+// Endpoint d'exécution
+app.post('/mcp/execute', (req, res) => {
+  const { function_name, arguments } = req.body;
+  
+  // Exécution de la fonction
+  if (function_name === 'get_weather') {
+    const weather = getWeatherData(arguments.location);
+    res.json({ result: weather });
+  } else {
+    res.status(400).json({ error: 'Function not found' });
+  }
+});
+
+app.listen(3000);
+            </code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h2>Communication entre client et serveur MCP</h2>
+          
+          <div class="mermaid">
+sequenceDiagram
+    participant Client as MCP Client
+    participant Server as MCP Server
+    
+    Client->>Server: GET /mcp/capabilities
+    Server-->>Client: { functions: [...] }
+    
+    Client->>Server: POST /mcp/execute { function_name, arguments }
+    Server-->>Client: { result: ... }
+          </div>
+          
+          <div class="split-layout fragment">
+            <div class="split-left">
+              <h3>Points clés:</h3>
+              <ul>
+                <li>Protocol <strong>JSON-RPC</strong> sous-jacent</li>
+                <li><strong>Auto-découverte</strong> des capacités</li>
+                <li>Format <strong>standardisé</strong> des réponses</li>
+              </ul>
+            </div>
+            <div class="split-right">
+              <h3>Défis:</h3>
+              <ul>
+                <li><strong>Authentification</strong> sécurisée</li>
+                <li>Gestion des <strong>erreurs</strong></li>
+                <li><strong>Monitoring</strong> et observabilité</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Défis de sécurité et d'authentification</h2>
+          
+          <div class="flex-container">
+            <div class="flex-item">
+              <h3>🔐 Modèles d'authentification</h3>
+              <ul>
+                <li>OAuth 2.0 pour l'authentification</li>
+                <li>JWT pour la transmission sécurisée</li>
+                <li>API Keys pour les intégrations simples</li>
+              </ul>
+            </div>
+            <div class="flex-item">
+              <h3>🛡️ Modèles d'autorisation</h3>
+              <ul>
+                <li>RBAC (Role-Based Access Control)</li>
+                <li>Limitations par utilisateur/application</li>
+                <li>Audit logging des appels</li>
+              </ul>
+            </div>
+            <div class="flex-item">
+              <h3>⚠️ Risques spécifiques</h3>
+              <ul>
+                <li>Prompt injection via les arguments</li>
+                <li>Fuite d'informations sensibles</li>
+                <li>Utilisation excessive de ressources</li>
+              </ul>
+            </div>
+            <div class="flex-item conseil">
+              <h3>💡 Bonnes pratiques</h3>
+              <p>Valider rigoureusement les entrées</p>
+              <p>Limiter la portée des accès</p>
+              <p>Implémenter des quotas et rate limiting</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Discussion et questions</h2>
+          
+          <div class="highlight-box">
+            <h3>Points à discuter:</h3>
+            <ul>
+              <li>Quels cas d'usage potentiels identifiez-vous dans votre contexte?</li>
+              <li>Quelles difficultés d'implémentation anticipez-vous?</li>
+              <li>Comment la gouvernance MCP pourrait être mise en place?</li>
+            </ul>
+          </div>
+          
+          <div class="fragment">
+            <h3>Préparation aux ateliers de l'après-midi</h3>
+            <p>Nous allons explorer trois cas d'usage pratiques:</p>
+            <ol>
+              <li>Accès à une base de connaissances interne</li>
+              <li>Interface en langage naturel pour des requêtes SQL</li>
+              <li>Automatisation de tâches administratives</li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- Programme de l'après-midi -->
+        <section data-background="#00AEC7">
+          <h1>Programme de l'après-midi: Ateliers pratiques</h1>
+        </section>
+
+        <section>
+          <h2>Organisation des ateliers</h2>
+          
+          <div class="flex-container">
+            <div class="flex-item">
+              <h3>👥 Constitution des groupes</h3>
+              <ul>
+                <li>Équipes mixtes de 4-5 personnes</li>
+                <li>Au moins un développeur par groupe</li>
+                <li>Mélange de profils techniques et métiers</li>
+              </ul>
+            </div>
+            <div class="flex-item">
+              <h3>⏱️ Planning</h3>
+              <ul>
+                <li>13h30 - 14h00: Présentation des cas d'usage</li>
+                <li>14h00 - 16h00: Travail en groupes</li>
+                <li>16h00 - 16h30: Finalisation</li>
+                <li>16h30 - 17h30: Restitution et discussion</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="workshop-box fragment">
+            <h3>🛠️ Environnement de travail</h3>
+            <p>Chaque groupe disposera de:</p>
+            <ul>
+              <li>Un environnement de développement préconfiguré</li>
+              <li>Des templates de serveurs MCP</li>
+              <li>L'accès à des instances de test de LLMs</li>
+              <li>Un accompagnement des formateurs</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2>Cas d'usage 1: Base de connaissances interne</h2>
+          
+          <div class="two-columns">
+            <div class="column">
+              <h3>🎯 Objectif</h3>
+              <p>Créer un serveur MCP qui permet à l'IA d'accéder à une base de connaissances structurée et d'y contribuer.</p>
+              
+              <h3>🧩 Fonctionnalités clés</h3>
+              <ul>
+                <li>Rechercher des informations</li>
+                <li>Consulter des détails</li>
+                <li>Ajouter de nouvelles entrées</li>
+                <li>Mettre à jour les connaissances existantes</li>
+              </ul>
+            </div>
+            <div class="column">
+              <div class="demo-box">
+                <h3>Structure de données</h3>
+                <pre><code class="json" data-trim>
+{
+  "entries": [
+    {
+      "id": "arch-001",
+      "title": "Architecture microservices",
+      "content": "Notre architecture utilise...",
+      "tags": ["architecture", "microservices"],
+      "last_updated": "2025-04-15"
+    }
+  ]
+}
+                </code></pre>
+              </div>
+            </div>
+          </div>
+          
+          <div class="fragment">
+            <h3>💡 Points d'attention</h3>
+            <ul>
+              <li>Création d'une <strong>ontologie</strong> claire pour guider l'IA</li>
+              <li>Définition de <strong>prompts</strong> efficaces pour l'utilisation</li>
+              <li>Mise en place de <strong>validation</strong> des nouvelles entrées</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2>Cas d'usage 2: Interface en langage naturel pour SQL</h2>
+          
+          <div class="two-columns">
+            <div class="column">
+              <h3>🎯 Objectif</h3>
+              <p>Permettre à l'IA de traduire des questions en langage naturel en requêtes SQL, puis d'exécuter et d'expliquer les résultats.</p>
+              
+              <h3>🧩 Fonctionnalités clés</h3>
+              <ul>
+                <li>Comprendre le schéma de la base</li>
+                <li>Générer des requêtes SQL sécurisées</li>
+                <li>Exécuter les requêtes</li>
+                <li>Présenter les résultats de façon compréhensible</li>
+              </ul>
+            </div>
+            <div class="column">
+              <div class="demo-box">
+                <h3>Workflow</h3>
+                <div class="mermaid">
+flowchart TD
+    A[Question utilisateur] --> B[Analyse LLM]
+    B --> C[Génération SQL]
+    C --> D[Validation sécurité]
+    D --> E{Valide?}
+    E -->|Oui| F[Exécution]
+    E -->|Non| G[Correction]
+    G --> C
+    F --> H[Présentation résultats]
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="fragment">
+            <h3>💡 Points d'attention</h3>
+            <ul>
+              <li>Gestion de la <strong>sécurité</strong> (injection SQL)</li>
+              <li>Limitation des <strong>permissions</strong> (lecture seule?)</li>
+              <li>Enrichissement avec des <strong>métadonnées</strong> business</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2>Cas d'usage 3: Automatisation administrative</h2>
+          
+          <div class="two-columns">
+            <div class="column">
+              <h3>🎯 Objectif</h3>
+              <p>Créer un agent capable d'automatiser des tâches administratives comme la création de tickets, la gestion de congés ou la réservation de salles.</p>
+              
+              <h3>🧩 Fonctionnalités clés</h3>
+              <ul>
+                <li>Création de tickets d'incident</li>
+                <li>Consultation du statut des tickets</li>
+                <li>Mise à jour et commentaires</li>
+                <li>Notification des changements</li>
+              </ul>
+            </div>
+            <div class="column">
+              <div class="demo-box">
+                <h3>Exemple d'interaction</h3>
+                <pre><code class="text" data-trim>
+Utilisateur: "Peux-tu créer un ticket pour 
+un problème de connexion VPN?"
+
+IA: "Je vais créer un ticket. Quelle est 
+la priorité de ce problème?"
+
+Utilisateur: "Moyenne, j'ai un workaround"
+
+IA: "J'ai créé le ticket #12345 avec une 
+priorité moyenne. Je t'informerai 
+quand il sera pris en charge."
+                </code></pre>
+              </div>
+            </div>
+          </div>
+          
+          <div class="fragment">
+            <h3>💡 Points d'attention</h3>
+            <ul>
+              <li>Intégration avec les <strong>systèmes existants</strong> (JIRA, ServiceNow...)</li>
+              <li>Gestion de l'<strong>authentification</strong> déléguée</li>
+              <li>Support des <strong>notifications asynchrones</strong></li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2>Méthodologie de travail</h2>
+          
+          <div class="split-layout">
+            <div class="split-left">
+              <h3>Étape 1: Conception (30 min)</h3>
+              <ol>
+                <li>Définir clairement le cas d'usage</li>
+                <li>Identifier les fonctions Resources et Actions</li>
+                <li>Concevoir l'ontologie et les prompts</li>
+                <li>Prévoir les scénarios de test</li>
+              </ol>
+            </div>
+            <div class="split-right">
+              <h3>Étape 2: Implémentation (60 min)</h3>
+              <ol>
+                <li>Créer le serveur MCP basique</li>
+                <li>Implémenter les fonctions principales</li>
+                <li>Définir les structures de données</li>
+                <li>Documenter l'API via /capabilities</li>
+              </ol>
+            </div>
+          </div>
+          
+          <div class="split-layout fragment">
+            <div class="split-left">
+              <h3>Étape 3: Test et itération (60 min)</h3>
+              <ol>
+                <li>Tester avec l'IA client</li>
+                <li>Analyser les cas d'échec</li>
+                <li>Améliorer les prompts et descriptions</li>
+                <li>Optimiser les fonctionnalités</li>
+              </ol>
+            </div>
+            <div class="split-right">
+              <h3>Étape 4: Préparation restitution (30 min)</h3>
+              <ol>
+                <li>Préparer une démonstration</li>
+                <li>Documenter les points forts/faibles</li>
+                <li>Identifier les prochaines étapes</li>
+                <li>Réfléchir aux cas d'usage futurs</li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Restitution et planification</h2>
+          
+          <div class="agenda-box">
+            <h3>16h30 - 17h30: Partage et discussion</h3>
+            <ul>
+              <li>Chaque groupe présente sa solution (10 min chacun)</li>
+              <li>Démonstration en direct</li>
+              <li>Questions et feedback</li>
+              <li>Enseignements clés</li>
+            </ul>
+          </div>
+          
+          <div class="highlight-box fragment">
+            <h3>Prochaines étapes potentielles</h3>
+            <ul>
+              <li>Identification d'un cas d'usage stratégique pour un POC</li>
+              <li>Planification d'un projet pilote</li>
+              <li>Définition des critères de succès</li>
+              <li>Évaluation des ressources nécessaires</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Conclusion -->
+        <section data-background="#00AEC7">
+          <h1>Conclusion</h1>
+        </section>
+
+        <section>
+          <h2>Ce qu'il faut retenir</h2>
+          
+          <div class="flex-container">
+            <div class="flex-item">
+              <h3>🔑 1. Le nouveau standard</h3>
+              <p>MCP est aux agents IA ce que REST a été au Web</p>
+              <p>Un standard adopté par tous les grands acteurs</p>
+            </div>
+            <div class="flex-item">
+              <h3>👁️ 2. L'affordance pour IA</h3>
+              <p>Un outil doit guider l'IA sur quand et comment l'utiliser</p>
+              <p>Les prompts sont le mode d'emploi essentiel</p>
+            </div>
+            <div class="flex-item">
+              <h3>🎯 3. Les 3U</h3>
+              <p><strong>U</strong>seful (Utile)</p>
+              <p><strong>U</strong>sable (Utilisable)</p>
+              <p><strong>U</strong>sed (Utilisé)</p>
+            </div>
+            <div class="flex-item conseil">
+              <h3>⚡ Plan d'action</h3>
+              <p>Commencez petit, mesurez l'usage, et itérez rapidement!</p>
+              <p>Identifiez un cas d'usage à fort impact pour votre POC</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Merci! Des questions? <span style="font-size: 0.7em;">🔑 👁️ 🎯</span></h2>
+          <p>Pour continuer la conversation:</p>
+          
+          <div style="display: flex; justify-content: space-around; margin: 30px 0;">
+            <div style="text-align: center; width: 45%;">
+              <img src="photos/bluesky.png" alt="Bluesky QR Code" style="max-width: 200px; height: auto;">
+              <p>Bluesky @owulveryck.info</p>
+            </div>
+            <div style="text-align: center; width: 45%;">
+              <img src="photos/linkedin.jpg" alt="LinkedIn QR Code" style="max-width: 200px; height: auto;">
+              <p>https://www.linkedin.com/in/olivierwulveryck</p>
+            </div>
+          </div>
+          
+          <p style="margin-top: 30px;"><em>Le futur des interactions IA-outils est en train de s'écrire maintenant...</em></p>
+        </section>
+
+      </div>
+
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/search/search.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+
+    // Also available as an ES module, see:
+    // https://revealjs.com/initialization/
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      center: true,
+      hash: true,
+
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+    });
+
+    // Fonction pour initialiser Mermaid
+    function initMermaid() {
+      try {
+        // On force la ré-initialisation complète
+        mermaid.run({
+          querySelector: '.mermaid'
+        });
+      } catch (error) {
+        console.error('Erreur lors de l\'initialisation de Mermaid:', error);
+      }
+    }
+    
+    // Initialiser Mermaid quand Reveal est prêt
+    Reveal.addEventListener('ready', function() {
+      // Attendre un court délai pour s'assurer que le DOM est bien prêt
+      setTimeout(initMermaid, 500);
+    });
+    
+    // Initialiser Mermaid sur chaque transition de slide
+    Reveal.addEventListener('slidechanged', function(event) {
+      if (event.currentSlide.querySelector('.mermaid')) {
+        // Ré-initialiser Mermaid chaque fois qu'un slide contenant un diagramme est affiché
+        setTimeout(initMermaid, 200);
+      }
+    });
+
+    </script>
+
+  </body>
+</html>
