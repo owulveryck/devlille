@@ -1,4 +1,5 @@
 01-title.html
+00-qrcode.html
 02-section-understanding-llms.html
 03-importance-language.html
 04-inference-engine.html

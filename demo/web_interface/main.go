@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"encoding/json"
 	"flag"
 	"fmt"
@@ -10,6 +11,11 @@ import (
 	"os"
 	"sync"
 	"time"
+
+	"github.com/yeqown/go-qrcode/v2"
+	"github.com/yeqown/go-qrcode/writer/standard"
+	"golang.ngrok.com/ngrok"
+	"golang.ngrok.com/ngrok/config"
 )
 
 type Submission struct {
@@ -218,5 +224,30 @@ func main() {
 	http.HandleFunc("/submit", submitHandler)
 
 	fmt.Println("Server starting on http://localhost:8084")
-	log.Fatal(http.ListenAndServe(":8084", nil))
+	ctx := context.Background()
+	l, err := ngrok.Listen(ctx,
+		config.HTTPEndpoint(),
+		ngrok.WithAuthtokenFromEnv(),
+	)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println("ngrok ingress url: ", l.Addr())
+	qrc, err := qrcode.New(fmt.Sprintf("https://%v", l.Addr()))
+	if err != nil {
+		fmt.Printf("could not generate QRCode: %v", err)
+		return
+	}
+
+	w, err := standard.New("../../slides/repo-qrcode.jpeg")
+	if err != nil {
+		fmt.Printf("standard.New failed: %v", err)
+		return
+	}
+
+	// save file
+	if err = qrc.Save(w); err != nil {
+		fmt.Printf("could not save image: %v", err)
+	}
+	http.Serve(l, nil)
 }

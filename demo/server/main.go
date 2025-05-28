@@ -5,9 +5,8 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"io/ioutil"
 	"log"
-	"path/filepath"
+	"os"
 	"strings"
 
 	"github.com/mark3labs/mcp-go/mcp"
@@ -47,7 +46,7 @@ func handleDemoContent(
 	request mcp.ReadResourceRequest,
 ) ([]mcp.ResourceContents, error) {
 	// Read the DB file
-	data, err := ioutil.ReadFile(*dbPath)
+	data, err := os.ReadFile(*dbPath)
 	if err != nil {
 		return nil, fmt.Errorf("failed to read database file: %w", err)
 	}
@@ -78,10 +77,11 @@ func handleDemoContent(
 
 func main() {
 	flag.Parse()
-	
+
 	mcpServer := NewDemoMCPServer()
 
 	if err := server.ServeStdio(mcpServer); err != nil {
 		log.Fatalf("Server error: %v", err)
 	}
 }
+
