@@ -32,7 +32,7 @@ func NewDemoMCPServer() *server.MCPServer {
 
 	mcpServer.AddResource(
 		mcp.NewResource("demo://content",
-			"Demo Content Resource",
+			"DemoContentResource",
 			mcp.WithMIMEType("text/plain"),
 		),
 		handleDemoContent,
@@ -84,4 +84,3 @@ func main() {
 		log.Fatalf("Server error: %v", err)
 	}
 }
-
