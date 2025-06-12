@@ -39,7 +39,7 @@ Ce serveur expose les attentes des participants via l'URI demo://content ainsi q
 		),
 		handleDemoContent,
 	)
-	mcpServer.AddPrompt(GetPromptSummary(), GetPromptSummaryHandler)
+	//	mcpServer.AddPrompt(GetPromptSummary(), GetPromptSummaryHandler)
 	mcpServer.AddPrompt(GetPrompt(), GetPromptHandler)
 
 	return mcpServer
