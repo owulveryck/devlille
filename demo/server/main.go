@@ -5,9 +5,8 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"io/ioutil"
 	"log"
-	"path/filepath"
+	"os"
 	"strings"
 
 	"github.com/mark3labs/mcp-go/mcp"
@@ -29,15 +28,19 @@ func NewDemoMCPServer() *server.MCPServer {
 		"1.0.0",
 		server.WithResourceCapabilities(true, true),
 		server.WithLogging(),
+		server.WithInstructions(`Ceci est un server MCP (Model Context Protocol) de demonstration dans le cadre de la conférence du DevLille.
+Ce serveur expose les attentes des participants via l'URI demo://content ainsi qu'un prompt pour jouer la demo.`),
 	)
 
 	mcpServer.AddResource(
 		mcp.NewResource("demo://content",
-			"Demo Content Resource",
+			"DemoContentResource",
 			mcp.WithMIMEType("text/plain"),
 		),
 		handleDemoContent,
 	)
+	//	mcpServer.AddPrompt(GetPromptSummary(), GetPromptSummaryHandler)
+	mcpServer.AddPrompt(GetPrompt(), GetPromptHandler)
 
 	return mcpServer
 }
@@ -47,7 +50,7 @@ func handleDemoContent(
 	request mcp.ReadResourceRequest,
 ) ([]mcp.ResourceContents, error) {
 	// Read the DB file
-	data, err := ioutil.ReadFile(*dbPath)
+	data, err := os.ReadFile(*dbPath)
 	if err != nil {
 		return nil, fmt.Errorf("failed to read database file: %w", err)
 	}
@@ -71,14 +74,14 @@ func handleDemoContent(
 		mcp.TextResourceContents{
 			URI:      "demo://content",
 			MIMEType: "text/plain",
-			Text:     textContent.String(),
+			Text:     textContent.String()[:255],
 		},
 	}, nil
 }
 
 func main() {
 	flag.Parse()
-	
+
 	mcpServer := NewDemoMCPServer()
 
 	if err := server.ServeStdio(mcpServer); err != nil {

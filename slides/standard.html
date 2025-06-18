@@ -1,0 +1,44 @@
+<section>
+  <h2>Comparaison avec JSON-RPC</h2>
+
+  <table style="margin-top: 20px; width: 80%; margin-left: auto; margin-right: auto;">
+    <thead>
+      <tr>
+        <th>Élément</th>
+        <th>JSON-RPC Standard</th>
+        <th>Spécifique MCP</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>"jsonrpc": "2.0"</code></td>
+        <td>✅</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code>"id": 3</code></td>
+        <td>✅</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><code>"method": "resources/read"</code></td>
+        <td>✅ (structure)</td>
+        <td>✅ (valeur)</td>
+      </tr>
+      <tr>
+        <td><code>"params": { "name": ... }</code></td>
+        <td>✅ (structure)</td>
+        <td>✅ (valeurs)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <aside class="notes">
+    <h3>Comparaison avec JSON-RPC</h3>
+    <p>Ce tableau met en évidence les similitudes et les différences entre JSON-RPC et MCP.</p>
+    <ul>
+      <li>Les éléments de base comme <code>"jsonrpc": "2.0"</code> et <code>"id": 3</code> sont conformes au standard JSON-RPC.</li>
+      <li>MCP étend JSON-RPC en spécifiant des valeurs pour l'élément <code>"method"</code> et la structure de <code>"params"</code>.</li>
+    </ul>
+  </aside>
+</section>
