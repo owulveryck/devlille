@@ -76,12 +76,12 @@
     font-size: 0.9em;
   }
   .flex-item.conseil {
-      background: #00AEC7;
-      color: white;
-  }
-   .flex-item.conseil p {
-      margin-bottom: 5px;
-  }
+    background: #00AEC7;
+    color: white;
+    }
+    .flex-item.conseil p {
+    margin-bottom: 5px;
+    }
 
     </style>
   </head>
@@ -106,6 +106,7 @@
     <script src="plugin/search/search.js"></script>
     <script src="plugin/markdown/markdown.js"></script>
     <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/tagcloud/tagcloud.js"></script>
     <script>
 
     // Also available as an ES module, see:
@@ -131,13 +132,13 @@
         console.error('Erreur lors de l\'initialisation de Mermaid:', error);
       }
     }
-    
+
     // Initialiser Mermaid quand Reveal est prêt
     Reveal.addEventListener('ready', function() {
       // Attendre un court délai pour s'assurer que le DOM est bien prêt
       setTimeout(initMermaid, 500);
     });
-    
+
     // Initialiser Mermaid sur chaque transition de slide
     Reveal.addEventListener('slidechanged', function(event) {
       if (event.currentSlide.querySelector('.mermaid')) {
@@ -150,34 +151,34 @@
     function setupAutoReload() {
       const protocol = location.protocol === 'https:' ? 'wss:' : 'ws:';
       const wsUrl = protocol + '//' + location.host + '/ws';
-      
+
       function connect() {
         const ws = new WebSocket(wsUrl);
-        
+
         ws.onopen = function() {
           console.log('Auto-reload WebSocket connected');
         };
-        
+
         ws.onmessage = function(event) {
           if (event.data === 'reload') {
             console.log('File changed, reloading page...');
             location.reload();
           }
         };
-        
+
         ws.onclose = function() {
           console.log('Auto-reload WebSocket disconnected, attempting to reconnect...');
           setTimeout(connect, 1000);
         };
-        
+
         ws.onerror = function(error) {
           console.log('Auto-reload WebSocket error:', error);
         };
       }
-      
+
       connect();
     }
-    
+
     // Start auto-reload when page is loaded
     setupAutoReload();
 

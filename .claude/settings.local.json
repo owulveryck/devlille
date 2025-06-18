@@ -6,5 +6,6 @@
       "Bash(go build:*)"
     ],
     "deny": []
-  }
+  },
+  "enableAllProjectMcpServers": false
 }

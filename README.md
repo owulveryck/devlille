@@ -175,4 +175,11 @@ Cette démonstration illustre concrètement :
 
 ## Licence
 
-Projet de démonstration pour DevLille 2025 - Usage éducatif
+Ce projet est sous licence [Creative Commons Attribution 4.0 International](LICENSE).
+
+Vous êtes libre de :
+- Partager — copier et redistribuer le matériel sous tous supports ou formats
+- Adapter — remixer, transformer et développer le matériel pour toute utilisation, y compris commerciale
+
+Sous les conditions suivantes :
+- Attribution — Vous devez créditer l'œuvre, intégrer un lien vers la licence et indiquer si des modifications ont été effectuées.
